@@ -5,7 +5,9 @@ _WIP_
 ## In the Series
 
 * [Part 00 - Background](00-background.md)
-* [Part 01 - Immediate Applications](01-immediate-applications.md)
+* Part 01 - Immediate Applications
+    * [1/2 - Arithmetics, Text Processing](01-immediate-applications-1.md)
+    * 2/2 - Text Processing (continued), Type Casting, First Reusability - Variables and Functions
 * Part 02 - Flow Control and Boolean Algebra
 
 ## On Exercises
