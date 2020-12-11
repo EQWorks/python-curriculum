@@ -327,11 +327,13 @@ How can we truly abstract away the operation `str((x + y) % 24).zfill(2) + ':00'
 ```
 
 Let us dissect out the anatomy of this function first (mentally ignore the interactive prompt symbols `>>> ` and `...`):
-* `def` is a keyword that leads to a function definition statement.
+* `def` is a _keyword_ that leads to a function definition statement.
 * The name of the function is `hours_from`.
 * The parentheses after the function name signifies that as a function, it is a "Callable", and within are what this function would accept as "arguments" or values passed into the function.
-* After the colon `:` and below, with a 4-space indentation, would be the "body" of the function, which is a block of code that does something but only within the _scope_ of the function. In this case, it evaluates our "hours from" _algorithm_ and assigns the value into a _local_ variable `z`.
-* `return` keyword is used to state the value (evaluated from the expression) to be passed out of the function, or what the function call as an expression would evaluate into. In this case, it returns the variable `z` (and what value it would hold).
+* After the colon `:` and below, each statement with an indentation (conventionally 4-space), would be the "body" of the function, which is a block of code that does something but only within the _scope_ of the function. In this case, it evaluates our "hours from" _algorithm_ and assigns the value into a _local_ variable `z`.
+* `return` _keyword_ is used to state the value (evaluated from the expression) to be passed out of the function, or what the function call as an expression would evaluate into. In this case, it returns (pass out of the function) the value of variable `z`.
+
+![func](https://i.imgur.com/QJuIM8A.png)
 
 Now, this function can be treated as a black box and visualized through a simple flowchart:
 
