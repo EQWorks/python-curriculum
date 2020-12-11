@@ -122,7 +122,7 @@ _Note: aside from `str` we have also seen two of the numeric built-in types, `in
 
 ### Problem 01 - Seconds from Time
 
-Use what you have gathered so far, come up with a Python expression to answer "what is the time after 12345 seconds from 16:00?".
+Use what you have gathered so far, come up with a Python expression to answer _"what is the time after 12345 seconds from 16:00?"_.
 
 ### Problem 02 - Quotes of Strings of Quotes
 
