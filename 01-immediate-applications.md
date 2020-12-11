@@ -333,7 +333,7 @@ Let us dissect out the anatomy of this function first (mentally ignore the inter
 * After the colon `:` and below, each statement with an indentation (conventionally 4-space), would be the "body" of the function, which is a block of code that does something but only within the _scope_ of the function. In this case, it evaluates our "hours from" _algorithm_ and assigns the value into a _local_ variable `z`.
 * `return` _keyword_ is used to state the value (evaluated from the expression) to be passed out of the function, or what the function call as an expression would evaluate into. In this case, it returns (pass out of the function) the value of variable `z`.
 
-![func](https://i.imgur.com/QJuIM8A.png)
+![func](https://i.imgur.com/X7KBrAH.png)
 
 Now, this function can be treated as a black box and visualized through a simple flowchart:
 
