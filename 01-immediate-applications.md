@@ -335,6 +335,27 @@ Let us dissect out the anatomy of this function first (mentally ignore the inter
 
 ![func](https://i.imgur.com/X7KBrAH.png)
 
+As a subjective matter, and since now we are equipped with the some knowledge of variables, let us rewrite this function to be a bit more friendlier to read:
+
+```python
+>>> def hours_from(x, y):
+...     from_x = x + y  # unbound y hours from x
+...     from_x = str(from_x % 24)  # 24-hour capped hours from x, then cast to str
+...     z = from_x.zfill(2) + ':00'  # left-pad and format hours from x as HH:00
+...     return z  # return the value of z
+```
+
+Notice the second line inside the function body `from_x = str(from_x % 24)` being both a re-assignment, as well as having _itself_ referenced as apart of the right-hand-side expression. The right-hand side expression gets evaluated into a value and then assigned to the variable name on the left-hand side.
+
+Also as a subjective matter, and some more understanding of how values are being passed in and out of the function:
+
+```python
+>>> def hours_from(x, y):
+...     return str((x + y) % 24).zfill(2) + ':00'
+```
+
+Just like assignment statements, the return statement follows a similar rule that the right-hand-side expression gets evaluated into a value before being returned.
+
 Now, this function can be treated as a black box and visualized through a simple flowchart:
 
 ![blackbox](https://i.imgur.com/j1SWVaR.png)
