@@ -361,3 +361,10 @@ Implement a function that takes an arbitrary string as an argument `s`, and anot
 >>> cut('who let the dogs out?', 10)
 'who let th...'
 ```
+
+## Helpful Resources
+
+* [Python Built-in Types](https://docs.python.org/3.8/library/stdtypes.html)
+* [Python Built-in Functions](https://docs.python.org/3.8/library/functions.html)
+
+Please also refer to "How to Help and Get Helped" in [README](README.md) for other general pointers.
