@@ -351,6 +351,8 @@ Take the `hours_from()` function as a reference, implement `days_from()` which s
 
 The new LOCUS marketplace launch is imminent, and our design team has provided a great proposition to cut down long phrases to a fixed length and appended with an ellipsis (`...`) to indicate that there's more.
 
+![marketplace](https://i.imgur.com/xKN73Uq.png)
+
 Implement a function that takes an arbitrary string as an argument `s`, and another arbitrary integer as `l`, to achieve an effect so:
 
 ```python
