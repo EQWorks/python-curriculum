@@ -248,11 +248,16 @@ Or expressed in plain language _"y hours from x (o'clock) is z (o'clock)"_. Noti
 
 ## Exercises
 
-### Problem 01 - `days_from()`
+### Problem 03 - `days_from()` with minutes
 
-Take the `hours_from()` function as a reference, implement `days_from()` which should fit the description _"y days from x (o'clock) is z (o'clock)"_. You may assume that `y` is in earth days, and there are no complexities such as leap years and daylight saving times involved. In short, you can assume a day is always 24 hours.
+Take the `hours_from()` function as a reference, implement `days_from()` which:
+* should fit the description _"y days from x (o'clock) is z (o'clock)"_.
+* should accept `x` that includes minutes in string format such as `16:15`.
+* should return `z` that includes minutes as well.
 
-### Problem 02 - Save Spaces with Ellipsis
+You may assume that `y` is in earth days, and there are no complexities such as leap years and daylight saving times involved. In short, you can assume a day is always 24 hours, and an hour is always 60 minutes.
+
+### Problem 04 - Save Spaces with Ellipsis
 
 The new LOCUS marketplace launch is imminent, and our design team has provided a great proposition to cut down long phrases to a fixed length and appended with an ellipsis (`...`) to indicate that there's more.
 
@@ -274,4 +279,4 @@ Implement a function that takes an arbitrary string as an argument `s`, and anot
 * [Python Built-in Types](https://docs.python.org/3.8/library/stdtypes.html)
 * [Python Built-in Functions](https://docs.python.org/3.8/library/functions.html)
 
-Please also refer to "How to Help and Get Helped" in [README](README.md) for other general pointers.
+Please also refer to "How to Help and Get Helped" in [README](README.md#how-to-help-and-get-helped) for other general pointers.
