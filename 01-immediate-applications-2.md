@@ -58,7 +58,7 @@ But before that, let us meet another built-in _function_:
 <class 'str'>
 ```
 
-_Functions_ are similar to _methods_ of given _types_ in the sense that both are "Callable". One of the major differences is that _methods_ are strictly applicable to the value itself of types that defined them (such as `str.upper()`), while functions may be more universally applicable:
+_Functions_ are similar to _methods_ of given _types_ in the sense that both are _callable_. One of the differences is that methods are only applicable to the value itself of the type that defined them (such as `str.upper()`). On the other hand, functions may be more universally applicable:
 
 ```python
 >>> type(1)
@@ -75,7 +75,7 @@ Follows the same expression evaluation rules we have collected so far, except th
 So let us add one more expression evaluation rule to the list:
 * Callable enclosed before unenclosed.
 
-Now we are equipped with a tool to verify types, so we will not get lost from here on. Let us move on to try to cast a number into a string:
+Now we are equipped with a tool to verify types, so we will not get lost. Let us move on to try to cast a number into a string:
 
 ```python
 >>> str(9)
@@ -85,7 +85,7 @@ Now we are equipped with a tool to verify types, so we will not get lost from he
 <class 'str'>
 ```
 
-`str` here is both a type _class_, as well as a built-in function that attempts to cast the value given to its callable enclosure to the corresponding type. In technicality, this is an example of a class _constructor_, which is a special method used to "construct" an instance of the said class.
+`str` here is both a type _class_, as well as a built-in function that attempts to cast the value given to its callable enclosure to the corresponding type. In technicality, this is an example of a class _constructor_, a method used to construct an instance of the said class.
 
 Before diving into what has been given by the type casting, let's see what it has taken away:
 
@@ -152,9 +152,9 @@ Recall the example of modulo operation on finding the hour. Let us put that toge
 '01:00'
 ```
 
-## First Reusability - Variables and Functions
+## First Layer of Abstraction - Variables and Functions
 
-Without _variables_, the example of finding and composing a friendly display of what time it is `y` hours from `x` can be very tedious since it has to be repeatedly expressed with different specific values to work:
+At this point, the manual work is shifted, not lifted:
 
 ```python
 >>> str((16 + 12345) % 24).zfill(2) + ':00'  # 12345 hours from 16:00 is
@@ -169,9 +169,9 @@ Without _variables_, the example of finding and composing a friendly display of 
 ...
 ```
 
-This means that we have to copy/paste the same expression, and then modify the values in between, a very manual and error-prone process.
+We have to copy/paste the same expression with subtle modifications of some values in between to achieve the purpose of variation.
 
-So let's substitute the two intended variables to properly abstract our intent:
+So let's substitute in two _variables_ to properly abstract our intent:
 
 ```python
 >>> str((x + y) % 24).zfill(2) + ':00'  # y hours from x is
@@ -195,9 +195,9 @@ But this triggers an error that _variable_ name `'x'` is not defined. Notice how
 '03:00'
 ```
 
-Better, at least now we can copy/paste a fixed expression `str((x + y) % 24).zfill(2) + ':00'`, and only change intended variables `x` and `y` as needed. Before we move on, there is an interesting thing happening here. Notice how `x` and `y`, as variables, get _re-assigned_ a couple of times and that the value it holds is always according to the most recent assignment.
+Better, at least now we can copy/paste a fixed expression `str((x + y) % 24).zfill(2) + ':00'`, and only change intended variables `x` and `y` as needed. Before we move on, there is an interesting thing happening here. Notice how `x` and `y`, as variables, get _re-assigned_ a couple of times. The value a variable holds is always according to the most recent assignment.
 
-How can we truly abstract away the operation `str((x + y) % 24).zfill(2) + ':00'` or _"find out y hours from x is"_? By defining a custom function:
+How can we truly abstract away the expression `str((x + y) % 24).zfill(2) + ':00'` or _"find out y hours from x is"_? By defining a custom function:
 
 ```python
 >>> def hours_from(x, y):
@@ -229,16 +229,16 @@ As a subjective matter, and since now we are equipped with the some knowledge of
 ...     return z  # return the value of z
 ```
 
-Notice the second line inside the function body `from_x = str(from_x % 24)` being both a re-assignment, as well as having _itself_ referenced as apart of the right-hand-side expression. The right-hand side expression gets evaluated into a value and then assigned to the variable name on the left-hand side.
+Notice the second line inside the function body `from_x = str(from_x % 24)` being both a re-assignment and having _itself_ referenced as a part of the right-hand-side expression. The right-hand side expression gets evaluated into a value and then assigned to the variable name on the left-hand side.
 
-Also as a subjective matter, and some more understanding of how values are being passed in and out of the function:
+Also as a subjective matter, and some more understanding of how values are being passed in and out of the function, it may also be defined as:
 
 ```python
 >>> def hours_from(x, y):
 ...     return str((x + y) % 24).zfill(2) + ':00'
 ```
 
-Just like assignment statements, the return statement follows a similar rule that the right-hand-side expression gets evaluated into a value before being returned.
+Like assignment statements, the return statement follows a similar rule that the right-hand-side expression gets evaluated into a value before being returned.
 
 Now, this function can be treated as a black box and visualized through a simple flowchart:
 
@@ -248,18 +248,26 @@ Or expressed in plain language _"y hours from x (o'clock) is z (o'clock)"_. Noti
 
 ## Exercises
 
-### Problem 03 - `days_from()` with minutes
+### Problem 03 - I'm gonna build my own `seconds_from()`, with hours and minutes...
 
-Take the `hours_from()` function as a reference, implement `days_from()` which:
-* should fit the description _"y days from x (o'clock) is z (o'clock)"_.
-* should accept `x` that includes minutes in string format such as `16:15`.
-* should return `z` that includes minutes as well.
+Take the `hours_from()` function as well as [Problem 01](01-immediate-applications-1.md#problem-01---seconds-from-time) as references, implement `seconds_from()` which:
+* should fit the description _"y seconds from x (o'clock) is z (o'clock)"_.
+* should return `z` that in the form of `HH:mm`, such as `16:32`.
 
-You may assume that `y` is in earth days, and there are no complexities such as leap years and daylight saving times involved. In short, you can assume a day is always 24 hours, and an hour is always 60 minutes.
+A successful example of using this function should give you:
+
+```python
+>>> seconds_from(16, 12345)
+'19:25'
+```
+
+_Bonus_: how would you revise this function as `days_from()` that fit the description _"y days from x (o'clock) is z (o'clock)"_?
+
+You may assume that `y` is in earth days, and there are no complexities such as leap years and daylight saving times involved. In short, you can assume a day is always 24 hours, and an hour is 60 minutes, and a minute is 60 seconds.
 
 ### Problem 04 - Save Spaces with Ellipsis
 
-The new LOCUS marketplace launch is imminent, and our design team has provided a great proposition to cut down long phrases to a fixed length and appended with an ellipsis (`...`) to indicate that there's more.
+The new LOCUS marketplace launch is imminent. Our design team has provided a great proposition to cut down long phrases to a fixed length and appended them with an ellipsis (`...`) to indicate that there is more.
 
 ![marketplace](https://i.imgur.com/xKN73Uq.png)
 
@@ -267,8 +275,9 @@ Implement a function that takes an arbitrary string as an argument `s`, and anot
 
 ```python
 >>> def cut(s, l):
-...    # something
-...    pass
+...    z = ''  # the output variable
+...    # your implementation
+...    return z
 ...
 >>> cut('who let the dogs out?', 10)
 'who let th...'
@@ -278,5 +287,4 @@ Implement a function that takes an arbitrary string as an argument `s`, and anot
 
 * [Python Built-in Types](https://docs.python.org/3.8/library/stdtypes.html)
 * [Python Built-in Functions](https://docs.python.org/3.8/library/functions.html)
-
-Please also refer to "How to Help and Get Helped" in [README](README.md#how-to-help-and-get-helped) for other general pointers.
+* and [How to Help and Get Helped](README.md#how-to-help-and-get-helped) for general advices
