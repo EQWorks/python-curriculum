@@ -34,7 +34,7 @@ The indexing notion allows us to do a bit more than pinpoint a particular charac
 'puppies'
 ```
 
-This is a `range` operation that "_takes the characters from index 5 to index 12 (exclusive)_", or interpreted in another way as "_takes the characters from index 5 and count up to a total of 12 - 5 = 7 characters_".
+The above is a _range_ operation that takes the characters from index 5 (included) to index 12 (excluded). Another way to interpret it is that it takes the characters from index 5 and count up to 7 (12 - 5) characters.
 
 You can even specify the third variation to "jump" the sequence:
 
@@ -215,7 +215,7 @@ Let us dissect out the anatomy of this function first (mentally ignore the inter
 * The name of the function is `hours_from`.
 * The parentheses after the function name signifies that as a function, it is a "Callable", and within are what this function would accept as "arguments" or values passed into the function.
 * After the colon `:` and below, each statement with an indentation (conventionally 4-space), would be the "body" of the function, which is a block of code that does something but only within the _scope_ of the function. In this case, it evaluates our "hours from" _algorithm_ and assigns the value into a _local_ variable `z`.
-* `return` _keyword_ is used to state the value (evaluated from the expression) to be passed out of the function, or what the function call as an expression would evaluate into. In this case, it returns (pass out of the function) the value of variable `z`.
+* `return` _keyword_ is used to state the value to be passed out of the function. In this case, it returns the value of variable `z`.
 
 ![func](https://i.imgur.com/X7KBrAH.png)
 
@@ -231,7 +231,7 @@ As a subjective matter, and since now we are equipped with the some knowledge of
 
 Notice the second line inside the function body `from_x = str(from_x % 24)` being both a re-assignment and having _itself_ referenced as a part of the right-hand-side expression. The right-hand side expression gets evaluated into a value and then assigned to the variable name on the left-hand side.
 
-Also as a subjective matter, and some more understanding of how values are being passed in and out of the function, it may also be defined as:
+With some more understanding of how values are being passed in and out of the function, it may also be defined as:
 
 ```python
 >>> def hours_from(x, y):
@@ -252,7 +252,7 @@ Or expressed in plain language _"y hours from x (o'clock) is z (o'clock)"_. Noti
 
 Take the `hours_from()` function as well as [Problem 01](01-immediate-applications-1.md#problem-01---seconds-from-time) as references, implement `seconds_from()` which:
 * should fit the description _"y seconds from x (o'clock) is z (o'clock)"_.
-* should return `z` that in the form of `HH:mm`, such as `16:32`.
+* should return `z` in the form of `HH:mm`, such as `16:32`.
 
 A successful example of using this function should give you:
 
@@ -267,7 +267,7 @@ You may assume that `y` is in earth days, and there are no complexities such as 
 
 ### Problem 04 - Save Spaces with Ellipsis
 
-The new LOCUS marketplace launch is imminent. Our design team has provided a great proposition to cut down long phrases to a fixed length and appended them with an ellipsis (`...`) to indicate that there is more.
+The new LOCUS marketplace launch is imminent. The design team proposes to cut down long phrases to a fixed length and append them with ellipses (`...`).
 
 ![marketplace](https://i.imgur.com/xKN73Uq.png)
 
