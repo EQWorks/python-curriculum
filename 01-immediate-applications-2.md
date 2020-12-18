@@ -119,7 +119,7 @@ What about the multiplication operator `*`?
 
 The expression resulted in a repetition of the string `'9'` by `9` times. It means that the operator `*` works between `str` and `int`, but causes an entirely different effect than what it does between two numbers.
 
-Imagine if Bart knew this:
+#### Imagine if Bart knew this:
 
 ```python
 >>> 'I WILL NOT INSTIGATE REVOLUTION' * 18

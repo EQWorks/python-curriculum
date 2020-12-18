@@ -74,3 +74,170 @@ _Note: Pay attention to the (further) indentation under the `if` keyword. Unlike
 We effectively change the _flow_ of how to treat argument variable `x` -- if its value is a string, it goes through some additional steps to be _parsed_ (extracted and converted) into our desired form before proceeding onto the rest. We can visualize through an expanded flowchart:
 
 ![flow](https://i.imgur.com/mn3tYII.png)
+
+Sometimes an `if` statement ends with an `else` block as well:
+
+```python
+>>> def is_even(x):
+...     if x % 2 == 0:
+...         return True
+...     else:
+...         return False
+...
+>>> is_even(3)
+False
+...
+```
+
+Logically, _"if x is divisible by 2 without remainders, it's even; otherwise (else) it's odd (not even)"_. Notice the values returned, `True` and `False`. They are the only two available values of another Python built-in type `bool` (Boolean):
+
+```python
+>>> type(True)
+<class 'bool'>
+>>> type(False)
+<class 'bool'>
+```
+
+This logic can be compressed by employing what is known as "early exit", or "early return":
+
+```python
+>>> def is_even(x):
+...     if x % 2 == 0:
+...         return True  # if this gets executed, the rest is omitted
+...     return False
+...
+```
+
+We can omit the closing `else` block because `return`, among some other means, effectively _exits_ or _terminates_ the function upon execution. And the rest of the statements within this function gets skipped.
+
+This can be yet more succinct:
+
+```python
+>>> def is_even(x):
+...     return x % 2 == 0
+```
+
+The essence of what happens above lies in the expression `x % 2 == 0`. From left to right, it evaluates as:
+1. `x % 2` -> `remainder`
+2. `remainder == 0` -> `bool` (`True` or `False`)
+
+The `==` operator is for equality comparison between two values. The `is` keyword/operator from earlier is _conceptually_ a stronger equality comparison between two values, as well as their types:
+
+```python
+>>> 3.0 == 3  # value equality
+True
+>>> 3.0 is 3  # value and type
+False
+>>> 3.0 is 3.0  # value and type equality
+True
+```
+
+On top of `==`, there are `>`, `<`, `>=`, and `<=` operators for inequality comparisons. Play around with them to test your expectations, which should be intuitive.
+
+The value beside the conditional keyword (such as `if`) does not need to be in the `bool` type:
+
+```python
+>>> s = ''
+>>> if len(s):
+...     s
+... else:
+...     'Empty string'
+...
+'Empty string'
+```
+
+When the string is empty, its length is `0` of type `int`. In this context, Python interprets `if 0` as `False`, or consider `0` as "Falsy", while all other non-0 integer values are considered "Truthy".
+
+In fact, an empty string is already "Falsy", otherwise "Truthy":
+
+```python
+>>> s = ''
+>>> if s:
+...     s
+... else:
+...     'Empty string'
+...
+'Empty string'
+```
+
+There is a style to express this whole `if` statement more succinctly:
+
+```python
+>>> s = ''
+>>> s if s else 'Empty string'
+'Empty string'
+```
+
+Conceptually this is known as a _ternary_ operation. Unlike some other languages, Python does not have dedicated ternary operators, but a shorthand emulation based on existing `if` statements.
+
+## Logical Operations
+
+There is a way to express the conditional statement without using `if` from the previous case:
+
+```python
+>>> s = ''
+>>> s or 'Empty string'
+'Empty string'
+```
+
+In this case, we can describe the above as _"non-empty string `s` or `'Empty string'`"_. The `or` logic operator takes two operands (one on each side) and has a "truth-table" as such:
+
+| Left   |    | Right  | Output |
+|--------|----|--------|--------|
+| Truthy | or | Truthy | Left   |
+| Truthy | or | Falsy  | Left   |
+| Falsy  | or | Truthy | Right  |
+| Falsy  | or | Falsy  | Right  |
+
+If we mix-in the concept of evaluation short-circuiting:
+
+| Left   |    | Right  | Output |
+|--------|----|--------|--------|
+| Truthy | or | Any    | Left   |
+| Falsy  | or | Any    | Right  |
+
+One-liner as:
+
+> The first truthy value encountered until exhausted to the last.
+
+```python
+>>> def first_tru(v1, v2, v3, v4):
+...     return v1 or v2 or v3 or v4
+...
+>>> first_tru(0, 0.0, '', False)
+False
+>>> first_tru(1, 100, 1000, 10000)
+1
+```
+
+Similarly, the `and` logical operator:
+
+| Left   |     | Right  | Output |
+|--------|-----|--------|--------|
+| Falsy  | and | Truthy | Left   |
+| Falsy  | and | Falsy  | Left   |
+| Truthy | and | Truthy | Right  |
+| Truthy | and | Falsy  | Right  |
+
+With short-circuiting:
+
+| Left   |     | Right  | Output |
+|--------|-----|--------|--------|
+| Falsy  | and | Any    | Left   |
+| Truthy | and | Any    | Right  |
+
+One-liner:
+
+> The first falsy value encountered until exhausted to the last.
+
+```python
+>>> def first_mal(v1, v2, v3, v4):
+...     return v1 and v2 and v3 and v4
+...
+>>> first_mal(0, 0.0, '', False)
+0
+>>> first_mal(1, 100, 1000, 10000)
+10000
+```
+
+Play around with both functions by feeding arbitrary values of arbitrary types and see if they all behave as expected.
