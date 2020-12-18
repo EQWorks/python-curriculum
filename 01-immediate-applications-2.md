@@ -197,7 +197,9 @@ But this triggers an error that _variable_ name `'x'` is not defined. Notice how
 
 Better, at least now we can copy/paste a fixed expression `str((x + y) % 24).zfill(2) + ':00'`, and only change intended variables `x` and `y` as needed. Before we move on, there is an interesting thing happening here. Notice how `x` and `y`, as variables, get _re-assigned_ a couple of times. The value a variable holds is always according to the most recent assignment.
 
-How can we truly abstract away the expression `str((x + y) % 24).zfill(2) + ':00'` or _"find out y hours from x is"_? By defining a custom function:
+How can we truly abstract away the expression `str((x + y) % 24).zfill(2) + ':00'` or _"find out y hours from x is"_?
+
+#### By defining a custom function:
 
 ```python
 >>> def hours_from(x, y):
