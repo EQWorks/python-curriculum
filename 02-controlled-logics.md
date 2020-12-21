@@ -73,9 +73,9 @@ _Note: Pay attention to the (further) indentation under the `if` keyword. Unlike
 
 We effectively change the _flow_ of how to treat argument variable `x` -- if its value is a string, it goes through some additional steps to be _parsed_ (extracted and converted) into our desired form before proceeding onto the rest. We can visualize through an expanded flowchart:
 
-![flow](https://i.imgur.com/mn3tYII.png)
+![flow](https://i.imgur.com/2oo7LWk.png)
 
-Sometimes an `if` statement ends with an `else` block as well:
+An `if` statement can end with an `else`:
 
 ```python
 >>> def is_even(x):
@@ -103,7 +103,7 @@ This logic can be compressed by employing what is known as "early exit", or "ear
 ```python
 >>> def is_even(x):
 ...     if x % 2 == 0:
-...         return True  # if this gets executed, the rest is omitted
+...         return True  # if this gets executed, the rest is skipped
 ...     return False
 ...
 ```
@@ -132,7 +132,7 @@ False
 True
 ```
 
-On top of `==`, there are `>`, `<`, `>=`, and `<=` operators for inequality comparisons. Play around with them to test your expectations, which should be intuitive.
+On top of `==`, there are `>`, `<`, `>=`, `<=`, and `!=` operators for comparisons. Play around with them to test your expectations, which should be intuitive.
 
 The value beside the conditional keyword (such as `if`) does not need to be in the `bool` type:
 
@@ -170,7 +170,7 @@ There is a style to express this whole `if` statement more succinctly:
 
 Conceptually this is known as a _ternary_ operation. Unlike some other languages, Python does not have dedicated ternary operators, but a shorthand emulation based on existing `if` statements.
 
-## Logical Operations
+## Boolean Operations
 
 There is a way to express the conditional statement without using `if` from the previous case:
 
@@ -241,3 +241,17 @@ One-liner:
 ```
 
 Play around with both functions by feeding arbitrary values of arbitrary types and see if they all behave as expected.
+
+The last logical operator is `not`, which negates the value:
+
+```python
+>>> not True
+False
+>>> not False
+True
+>>> not 0
+True
+>>> s = ''
+>>> 'Empty string' if not s else s
+'Empty string'
+```
