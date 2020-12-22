@@ -128,7 +128,9 @@ The `==` operator is for equality comparison between two values. The `is` keywor
 True
 >>> 3.0 is 3  # value and type
 False
->>> 3.0 is 3.0  # value and type equality
+>>> 3.0 is 3.0  # identity (value and type) equality
+True
+>>> type('a string') is str  # identity equality
 True
 ```
 
@@ -146,7 +148,7 @@ The value beside the conditional keyword (such as `if`) does not need to be in t
 'Empty string'
 ```
 
-When the string is empty, its length is `0` of type `int`. In this context, Python interprets `if 0` as `False`, or consider `0` as "Falsy", while all other non-0 integer values are considered "Truthy".
+When the string is empty, its length is `0` of type `int`. In this context, Python interprets `0` as "Falsy", while all other non-0 integer values are considered "Truthy".
 
 In fact, an empty string is already "Falsy", otherwise "Truthy":
 
@@ -255,3 +257,69 @@ True
 >>> 'Empty string' if not s else s
 'Empty string'
 ```
+
+## Bitwise Operations
+
+Boolean operations are useful for conditional logic controls and truthy value filtering. We can do similar things with the essential representation of the value system -- binary bits.
+
+```python
+>>> 0 | 1  # bitwise OR
+1
+>>> 0 & 1  # bitwise AND
+0
+>>> 0b010 | 0b001
+3
+>>> bin(3)
+'0b11'
+>>> int('0b11', 2)
+3
+```
+
+Those numbers began with `0b` are integers expressed directly in their binary representations. The built-in function `bin` translates a regular integer (of base 10) to its binary string representation. And finally, the `int` built-in function converts the binary string representation back to an integer, with a second argument to specify its base.
+
+There are some other bitwise operations such as `<<` (left shift) and `>>` (right shift) that shifts all bits toward a desired direction:
+
+```python
+>>> bin(0b010 << 1)  # left shift and show binary string representation
+'0b100'
+>>> bin(0b010 >> 1)  # right shift and show binary string repr
+'0b1'  # leading 0s are omitted
+```
+
+Bitwise shifts can be used to emulate integer multiplications and divisions:
+
+```python
+>>> x = 3
+>>> x * 2 == x << 1
+True
+>>> x // 2 == x >> 1
+True
+```
+
+But more broadly, bitwise operations are used as bitmasking, where a single value is used for its bit-level information:
+
+```python
+>>> config = 0b1010_1010
+>>> bin(config | 0b1111_0000)  # turn ON bits 7-4, leave bits 3-0 intact
+'0b11111010'
+>>> bin(config & 0b0000_1111)  # turn OFF bits 7-4, leave bits 3-0 intact
+'0b1010'
+>>> bin(config ^ 0b1111_1111)  # toggle all bits (using XOR, exclusive OR)
+'0b1010101'
+>>> bin(config | (1 << 4))  # turn ON the bit 4 (5th from right)
+'0b10111010'
+>>> (config & 0b0100_1000) == 0b0100_1000  # query if bit 6 and 3 are both on
+False
+```
+
+_Notice the underscore `_` is used here as a number delimiter for readability. And just like inline comments, they are discarded by the Python runtime._
+
+Typically the advantages are:
+* Compactness - a single value is stored and utilized for its underlying binary representation, where each bit is a distinct configuration.
+* Performance - the software can perform multiple adjustments in a single operation.
+
+Bitwise operations come with a sacrifice that understanding of what each bit represents is required.
+
+Aside from configurations, systems utilize bitmasking for ID arrangements and distributions. One of the most prominent examples is IPv4 (Internet Protocol version 4) subnetting.
+
+![subnetting](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Subnetting_Concept.svg/1920px-Subnetting_Concept.svg.png)
