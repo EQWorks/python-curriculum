@@ -98,7 +98,7 @@ Logically, _"if x is divisible by 2 without remainders, it's even; otherwise (el
 <class 'bool'>
 ```
 
-This logic can be compressed by employing what is known as "early exit", or "early return":
+This logic can be compressed by employing what is known as "early return":
 
 ```python
 >>> def is_even(x):
@@ -191,7 +191,7 @@ In this case, we can describe the above as _"non-empty string `s` or `'Empty str
 | Falsy  | or | Truthy | Right  |
 | Falsy  | or | Falsy  | Right  |
 
-If we mix-in the concept of evaluation short-circuiting:
+If we mix-in the concept of evaluation short-circuiting (similar to "early return"):
 
 | Left   |    | Right  | Output |
 |--------|----|--------|--------|
@@ -450,5 +450,18 @@ print(bin(turn_day(0b1111111, WED, is_on=False)))  # prints out 0b1110111
 ```python
 def change_day(days, day_bit, mode):
     # mode can be 'on', 'off', 'toggle'
+    # ...implementation
     pass
+```
+
+### Problem
+
+```python
+
+def is_day_on(days, day_bit):
+    # ...implementation
+    pass
+
+print(is_day_on(0b1111111, WED))  # prints True
+print(is_day_on(0b1110111, WED))  # prints False
 ```
