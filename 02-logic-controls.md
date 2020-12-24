@@ -316,7 +316,7 @@ Typically bitmasking is used for system configurations and ID arrangements (such
 * Compactness - a single value is stored and utilized for its underlying binary representation, where each bit is a distinct configuration.
 * Efficiency - the software can perform multiple adjustments in a single operation.
 
-Similar to how [we handle precision-sensitive arithmetic](01-immediate-applications-1.md#fixed-point-numbers), the trade-off here is the implicit knowledge of what each bit represents is a requirement. This issue can be mitigated by abstracting away the implicit knowledge and expose a well defined/documented interface for its users:
+Similar to how [we handle precision-sensitive arithmetic](01-immediate-applications-1.md#fixed-point-numbers), the trade-off here is the implicit knowledge of what each bit represents is a requirement. This issue can be mitigated by abstracting away the implicit knowledge and expose a well <a name="turn-on-day"></a>defined interface for its users:
 
 ```python
 '''module: main.py'''
@@ -339,7 +339,7 @@ print(bin(turn_on_day(days, MON)))  # 0b1000000
 
 The example above is a _module_ (notice the lack of interactive prompt `>>> `), typically represented as a file with an extension of `.py`, the third abstraction building block after previously introduced _variables_ and _functions_.
 
-There are a few gimmicks to be noticed.
+There are a few details to be noticed.
 
 ### Scopes
 
@@ -408,4 +408,43 @@ When used:
 ```shell
 % python main.py
 13:00
+```
+
+## Exercises
+
+### Problem
+
+Refer to the [`turn_on_day()`](#turn-on-day) function implementation, implement:
+* `turn_off_day()`
+* `toggle_day()`
+
+### Problem
+
+Implement a function `turn_day()` such that:
+
+```python
+SUN = 0
+MON = 1
+TUE = 2
+WED = 3
+THU = 4
+FRI = 5
+SAT = 6
+
+def turn_day(days, day_bit, is_on):
+    # is_on is either True or False
+    # ...implementation
+    pass
+
+# when used
+print(bin(turn_day(0b0000000, SAT, is_on=True)))  # prints out 0b1000000
+print(bin(turn_day(0b1111111, WED, is_on=False)))  # prints out 0b1110111
+```
+
+### Problem
+
+```python
+def change_day(days, day_bit, mode):
+    # mode can be 'on', 'off', 'toggle'
+    pass
 ```
