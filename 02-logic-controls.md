@@ -305,9 +305,13 @@ But more broadly, bitwise operations are used as bitmasking, where a single valu
 >>> bin(config & 0b0000_1111)  # turn OFF bits 7-4, leave bits 3-0 intact
 '0b1010'
 >>> bin(config ^ 0b1111_1111)  # toggle all bits (using XOR, exclusive OR)
-'0b1010101'
+'0b1010101'  # leading 0 omitted, conceptually 0b0101_0101
 >>> (config & 0b0100_1000) == 0b0100_1000  # query if bit 6 and 3 are both on
 False
+>>> bin(~0b01)  # negate
+'-0b10'  # conceptually should just be 0b10
+>>> bin(~0b01 & 0b11)  # force unsigned to be signed
+'0b10'
 ```
 
 _Notice the underscore `_` is used here as a number delimiter for readability. And just like inline comments, they are discarded by the Python runtime._
