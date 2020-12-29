@@ -9,6 +9,8 @@ _WIP_
     * [1/2 - Arithmetics, Text Processing](01-immediate-applications-1.md)
     * [2/2 - Text Processing (continued), Type Casting, First Reusability - Variables and Functions](01-immediate-applications-2.md)
 * Part 02 - Flow Control and Boolean Algebra
+    * [1/2 - Conditions, Boolean Operations](02-logic-controls-1.md)
+    * 2/2 - Bitwise Operations
 
 ## On Exercises
 
