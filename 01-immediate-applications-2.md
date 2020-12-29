@@ -152,7 +152,7 @@ Recall the example of modulo operation on finding the hour. Let us put that toge
 '01:00'
 ```
 
-## First Layer of Abstraction - Variables and Functions
+## First Reusability - Variables and Functions
 
 At this point, the manual work is shifted, not lifted:
 

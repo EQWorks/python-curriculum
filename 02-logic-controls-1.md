@@ -28,11 +28,6 @@ This can obviously be fixed by leveraging some [text processing](01-immediate-ap
 ...     z = from_x.zfill(2) + ':00'  # left-pad and format hours from x as HH:00
 ...     return z  # return the value of z
 ...
-```
-
-And use it happily:
-
-```python
 >>> hours_from('16:00', 12345)
 '01:00'
 ```
@@ -86,7 +81,6 @@ An `if` statement can end with an `else`:
 ...
 >>> is_even(3)
 False
-...
 ```
 
 Logically, _"if x is divisible by 2 without remainders, it's even; otherwise (else) it's odd (not even)"_. Notice the values returned, `True` and `False`. They are the only two available values of another Python built-in type `bool` (Boolean):
@@ -105,7 +99,6 @@ Within the scope of a function, the logic can be concise by employing what is kn
 ...     if x % 2 == 0:
 ...         return True  # if this gets executed, skip the rest
 ...     return False
-...
 ```
 
 We can omit the closing `else` block because `return` (among a few other means) effectively _exits_ the function upon execution. And the rest of the statements within this function are skipped.
@@ -280,7 +273,7 @@ We often utilize the `and` logical operator to simplify [nested conditions](#nes
 
 ```python
 >>> def age_skip(age, lower, upper, skip):
-...     if age_safe(age, lower, upper) and age != skip:  # outer-if
+...     if age_safe(age, lower, upper) and age != skip:
 ...         return False
 ...     return True  # implied final else
 ```
@@ -342,11 +335,27 @@ Re-interpret the [`age_skip()` function implementation](#age-skip-last) so it is
 
 ### Problem 02 - Beefier `hours_from()`
 
-Further improve the [`hours_from()` implementation](#hours-from) with type-dependent handling of input `x` by correctly handling negative `x` values, both in real numbers and string representations such as `'-02:00'`.
+Further improve the [`hours_from()` implementation](#hours-from) to:
 
-Sample usage results:
+* Correctly handle negative `x` values
+* Correctly handle both single and double-digit string `x` hour values
+* Correctly handle string `x` values with or without hour-minute delimiter `:`
 
 ```python
+>>> hours_from(-8, 12345)
+'01:00'
 >>> hours_from('-08:00', 12345)
 '01:00'
+>>> hours_from('-8:00', 12345)
+'01:00'
+>>> hours_from('-8', 12345)
+'01:00'
+>>> hours_from(8, 12345)
+'17:00'
+>>> hours_from('08:00', 12345)
+'17:00'
+>>> hours_from('08', 12345)
+'17:00'
+>>> hours_from('8', 12345)
+'17:00'
 ```
