@@ -114,6 +114,8 @@ The essence of what happens above lies in the expression `x % 2 == 0`. From left
 1. `x % 2` evaluates into a _remainder_ (of type `int` or `float`)
 2. `remainder == 0` evaluates into a `bool` value (`True` or `False`)
 
+### Comparisons
+
 The `==` operator is for equality comparison between two values since `=` is already reserved for assignment statements. The `is` from earlier is _conceptually_ a stronger equality comparison between two identities (value and type):
 
 ```python
