@@ -62,7 +62,7 @@ Typically bitmasking is used for system configurations and ID arrangements (such
 * Compactness - a single value is stored and utilized for its underlying binary representation, where each bit is a distinct configuration.
 * Efficiency - the software can perform multiple adjustments in a single operation.
 
-Similar to how [we handle precision-sensitive arithmetic](01-immediate-applications-1.md#fixed-point-numbers), the trade-off here is the implicit knowledge of what each bit represents is a requirement. This issue can be mitigated by abstracting away the implicit knowledge and expose a well <a name="turn-on-day"></a>defined interface for its users:
+Similar to how [we handle precision-sensitive arithmetic](01-immediate-applications-1.md#fixed-point-numbers), the trade-off here is that it requires implicit knowledge of what each bit represents. This issue can be mitigated by abstracting away the implicit knowledge and expose a well <a name="turn-on-day"></a>defined interface for its users:
 
 ```python
 '''module: main.py'''
@@ -139,7 +139,6 @@ The above command will result in no visual output because:
 
 To command the program to give us visual outputs, we need to go through a common interface that the operating system exposes, and that interface varies from operating systems. Fortunately, the Python programming language has that abstraction covered for us through the already seen `print()` function:
 
-
 ```python
 '''module: main.py'''
 def hours_from(x, y):
@@ -155,6 +154,193 @@ When used:
 % python main.py
 13:00
 ```
+
+## Error Controls and Controlled Errors
+
+The imperative nature of logic controls we have seen are only as comprehensive as what a maker makes them be. Thus the uncaught cases become exceptions and contribute toward software flaws and errors.
+
+### try/except
+
+```python
+>>> 1 / 0
+Traceback (most recent call last):
+  ...
+ZeroDivisionError: division by zero
+```
+
+Division by zero has various consequences depending on the computation environment. In Python, such an attempt would _raise_ a `ZeroDivisionError`.
+
+Python provides `try/except` to capture errors like this:
+
+<a name="blanket-exception"></a>
+
+```python
+>>> try:
+...     1 / 0
+... except:
+...     pass
+```
+
+The above would result in the error to be handled with a `pass`, practically suppressing any errors including the aforementioned `ZeroDivisionError`. It is often more beneficial to be slightly more explicit about which type of error it is to be handled:
+
+```python
+>>> a = '1'
+>>> try:
+...     a / 0
+... except ZeroDivisionError:
+...     pass
+...
+Traceback (most recent call last):
+  File "<stdin>", line 2, in <module>
+TypeError: unsupported operand type(s) for /: 'str' and 'int'
+```
+
+The revised example from above takes an arbitrary variable `a` and divides it by `0`. While the anticipated `ZeroDivisionError` is handled (suppressed), unhandled errors would still surface. Similar to conditional statements, one can chain through more than one exception handling:
+
+```python
+try:
+    a / 0
+except ZeroDivisionError:
+    #  handle of zero division
+    pass
+except TypeError:
+    # handle of type error
+    pass
+except:
+    # last resort to handle the rest
+    pass
+```
+
+We can apply error control in our tried-and-true function `hours_from()` fit in a module named `utility.py`:
+
+```python
+'''module: utility.py'''
+def hours_from(x, y):
+    try:
+        x = int(x)
+        y = int(y)
+    except ValueError:
+        return None
+
+    from_x = x + y  # unbound y hours from x
+    from_x = str(from_x % 24)  # 24-hour capped hours from x, then cast to str
+    z = from_x.zfill(2) + ':00'  # left-pad and format hours from x as HH:00
+    return z  # return the value of z
+```
+
+A module can be used by importing it into other modules, or the Python interactive shell, and the members of the module such as the function `hours_from` accessed:
+
+```python
+>>> import utility
+>>> utility.hours_from(16, 12345)
+'01:00'
+>>> utility.hours_from('16:00', 12345)
+# None, null, nil, nothing
+```
+
+A few pieces to digest from above.
+
+Unlike the strategy of [utilizing conditions to adapt the function](02-logic-controls-1.md#hours-from), which requires explicit knowledge of the form of the arguments, the use of `try/except` essentially tells the users of the function that it is not possible. Instead of raising an exception, it does so gracefully.
+
+While the approach does not require explicit knowledge of the form of the arguments, it still requires the understanding of when the values may violate the `int()` usage. In this case, it would raise a `ValueError` when the supplied value cannot be parsed as a base-10 integer. The `ValueError` handling is still conditional, but more vague or abstract than explicit conditions through `if` statements, yet less so than [blanket exception handling](#blanket-exception) with no type of errors specified as seen from the zero division example.
+
+The handling of the error (block under `except`) would be a _business decision_ that its makers have to make. In the example, we instruct the function to "early exit" by `return None`. `None` is a special type in Python, with its only value also being `None`, which represents "nothing". Actually, when there is just `return` with no value for it, Python implies it as `return None`.
+
+### Controlled Errors
+
+To anticipate and handle errors is a significant tool. In turn, raising controlled errors allows us to better inform our users:
+
+```python
+'''module: utility.py'''
+def hours_from(x, y):
+    try:
+        x = int(x)
+        y = int(y)
+    except ValueError:
+        raise ValueError('x and y need to be real numbers or base-10 number strings')
+
+    from_x = x + y  # unbound y hours from x
+    from_x = str(from_x % 24)  # 24-hour capped hours from x, then cast to str
+    z = from_x.zfill(2) + ':00'  # left-pad and format hours from x as HH:00
+    return z  # return the value of z
+```
+
+```python
+>>> from utility import hours_from  # cherry-pick needed members from a module
+>>> hours_from('16:00', 123)
+Traceback (most recent call last):
+  ...
+    x = int(x)
+ValueError: invalid literal for int() with base 10: '16:00'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  ...
+    raise ValueError('x and y need to be real numbers or base-10 number strings')
+ValueError: x and y need to be real numbers or base-10 number strings
+```
+
+Python successfully handles the initial `ValueError` and raises the explicit `ValueError` with a custom message we defined along with the original. This gives the users of this function some extra insights on both the technical details of _where_ things failed (the original `ValueError`) and _why_ it failed with the custom message conveying the intended usage patterns (the explicitly raised `ValueError`). This is usually a judgment call depending on the intended users' domain expertise. One can argue that the original `ValueError` would suffice, in which case:
+
+```python
+'''module: utility.py'''
+def hours_from(x, y):
+    try:
+        x = int(x)
+        y = int(y)
+    except ValueError:
+        raise
+
+    from_x = x + y  # unbound y hours from x
+    from_x = str(from_x % 24)  # 24-hour capped hours from x, then cast to str
+    z = from_x.zfill(2) + ':00'  # left-pad and format hours from x as HH:00
+    return z  # return the value of z
+```
+
+...or simply equivelantly:
+
+```python
+'''module: utility.py'''
+def hours_from(x, y):
+    x = int(x)
+    y = int(y)
+
+    from_x = x + y  # unbound y hours from x
+    from_x = str(from_x % 24)  # 24-hour capped hours from x, then cast to str
+    z = from_x.zfill(2) + ':00'  # left-pad and format hours from x as HH:00
+    return z  # return the value of z
+```
+
+```python
+>>> from utility import hours_from
+>>> hours_from('16:00', 123)
+Traceback (most recent call last):
+  ...
+    x = int(x)
+ValueError: invalid literal for int() with base 10: '16:00'
+```
+
+### Assertion
+
+
+
+### Notes on Case Handling
+
+The use of additional conditions to be more comprehensive always has its limit. Every line of code added to handle more cases may cause regression and break existing functionality, sometimes costing more than what it would gain.
+
+Comparatively, uncareful error controls may hide too much useful error information that could otherwise help its makers to improve it.
+
+While there is no definitive answer on where to draw the line on when to apply which type of case handling, makers usually need to consider many factors. To name a few:
+
+* Whether the handling is engineeringly and societally ethical.
+* Whether the handling adds more potential "corner cases" or contradicts with existing cases.
+* Whether the handling is simple to reason.
+* Whether the handling is simple to use.
+* Whether the handling adds to the technical debt or the cost of replacement.
+* ...
+
+When the problem of choice presents itself, and there is insufficient supporting information to consider all factors, makers often resort to the "by default chocolate ice cream" scenario and make peace with simplicity. As the Unix Philosophy describes, "Do One Thing and Do it Well", embracing simplicity has become the mainstream wisdom to be applied at least in a unit abstraction level, such as functions in Python.
 
 ## Exercises
 
