@@ -92,7 +92,7 @@ Before diving into what has been given by the type casting, let's see what it ha
 ```python
 >>> str(9) / 4
 Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
+  ...
 TypeError: unsupported operand type(s) for /: 'str' and 'int'
 ```
 
@@ -101,12 +101,12 @@ Quite apparently, it fails. The error above means that by converting a number `9
 ```python
 >>> 4 + str(9)
 Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
+  ...
 TypeError: unsupported operand type(s) for +: 'int' and 'str'
 
 >>> str(9) - 4
 Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
+  ...
 TypeError: unsupported operand type(s) for -: 'str' and 'int'
 ```
 
@@ -176,7 +176,7 @@ So let's substitute in two _variables_ to properly abstract our intent:
 ```python
 >>> str((x + y) % 24).zfill(2) + ':00'  # y hours from x is
 Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
+  ...
 NameError: name 'x' is not defined
 ```
 

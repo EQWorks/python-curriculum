@@ -124,7 +124,7 @@ hours_from(4, 54321)  # this evaluates into '13:00'
                       # but that only stays within the module-scope
 ```
 
-And typically used as so:
+And can be used as so:
 
 ```shell
 % python main.py
@@ -195,16 +195,16 @@ Traceback (most recent call last):
 TypeError: unsupported operand type(s) for /: 'str' and 'int'
 ```
 
-The revised example from above takes an arbitrary variable `a` and divides it by `0`. While the anticipated `ZeroDivisionError` is handled (suppressed), unhandled errors would still surface. Similar to conditional statements, one can chain through more than one exception handling:
+The revised example from above takes an arbitrary variable `a` and divides it by `0`. While the anticipated `ZeroDivisionError` is handled (suppressed), unhandled errors would still surface. Similar to conditional statements, one can switch through more than one exception handling:
 
 ```python
 try:
     a / 0
 except ZeroDivisionError:
-    #  handle of zero division
+    # handle zero division
     pass
 except TypeError:
-    # handle of type error
+    # handle type error
     pass
 except:
     # last resort to handle the rest
@@ -228,14 +228,14 @@ def hours_from(x, y):
     return z  # return the value of z
 ```
 
-A module can be used by importing it into other modules, or the Python interactive shell, and the members of the module such as the function `hours_from` accessed:
+A module can be imported it into other modules, or the Python interactive shell, and the members of the module such as the function `hours_from` used:
 
 ```python
 >>> import utility
->>> utility.hours_from(16, 12345)
+>>> utility.hours_from(16, 12345)  # call utility module's hours_from() function
 '01:00'
 >>> utility.hours_from('16:00', 12345)
-# None, null, nil, nothing
+>>> # None, null, nil, nothing
 ```
 
 A few pieces to digest from above.
@@ -244,7 +244,7 @@ Unlike the strategy of [utilizing conditions to adapt the function](02-logic-con
 
 While the approach does not require explicit knowledge of the form of the arguments, it still requires the understanding of when the values may violate the `int()` usage. In this case, it would raise a `ValueError` when the supplied value cannot be parsed as a base-10 integer. The `ValueError` handling is still conditional, but more vague or abstract than explicit conditions through `if` statements, yet less so than [blanket exception handling](#blanket-exception) with no type of errors specified as seen from the zero division example.
 
-The handling of the error (block under `except`) would be a _business decision_ that its makers have to make. In the example, we instruct the function to "early exit" by `return None`. `None` is a special type in Python, with its only value also being `None`, which represents "nothing". Actually, when there is just `return` with no value for it, Python implies it as `return None`.
+The handling of the error (block under `except`) would be a _business decision_ that its makers have to make. In the example, we instruct the function to "early exit" by `return None`. `None` is a special type in Python, with its only value also being `None`, which represents "nothing". When there is just `return` with no value for it, Python implies it as `return None`.
 
 ### Controlled Errors
 
@@ -257,7 +257,7 @@ def hours_from(x, y):
         x = int(x)
         y = int(y)
     except ValueError:
-        raise ValueError('x and y need to be real numbers or base-10 number strings')
+        raise Exception('x and y need to be real numbers or base-10 number strings')
 
     from_x = x + y  # unbound y hours from x
     from_x = str(from_x % 24)  # 24-hour capped hours from x, then cast to str
@@ -277,11 +277,11 @@ During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
   ...
-    raise ValueError('x and y need to be real numbers or base-10 number strings')
-ValueError: x and y need to be real numbers or base-10 number strings
+    raise Exception('x and y need to be real numbers or base-10 number strings')
+Exception: x and y need to be real numbers or base-10 number strings
 ```
 
-Python successfully handles the initial `ValueError` and raises the explicit `ValueError` with a custom message we defined along with the original. This gives the users of this function some extra insights on both the technical details of _where_ things failed (the original `ValueError`) and _why_ it failed with the custom message conveying the intended usage patterns (the explicitly raised `ValueError`). This is usually a judgment call depending on the intended users' domain expertise. One can argue that the original `ValueError` would suffice, in which case:
+Python successfully handles the initial `ValueError` and raises the explicit `Exception` with a custom message we defined along with the original. This gives the users of this function some extra insights on both the technical details of _where_ things failed (the original `ValueError`) and _why_ it failed with the custom message conveying the intended usage patterns (the explicitly raised `Exception`). This is usually a judgment call depending on the intended users' domain expertise. One can argue that the original `ValueError` would suffice, in which case:
 
 ```python
 '''module: utility.py'''
@@ -314,7 +314,7 @@ def hours_from(x, y):
 
 ```python
 >>> from utility import hours_from
->>> hours_from('16:00', 123)
+>>> hours_from('16:00', 12345)
 Traceback (most recent call last):
   ...
     x = int(x)
@@ -323,7 +323,19 @@ ValueError: invalid literal for int() with base 10: '16:00'
 
 ### Assertion
 
+So far we have only utilized either `print()` or immediate evaluation response from the interactive shell to verify correctness of our code. To verify evaluation expectations, Python provides `assert` for such a purpose:
 
+```python
+>>> from utility import hours_from
+>>> assert hours_from(16, 12345) == '01:00'  # nothing
+>>> assert hours_from(16, 12345) != '16:00'  # nothing
+>>> assert hours_from(16, 12345) == '16:00'
+Traceback (most recent call last):
+  ...
+AssertionError
+```
+
+As demonstrated from the above example, when the evaluation is expected (truthy), it would result in nothing, as in "no news is good news"; otherwise, it raises an `AssertionError` to signify the mismatch of evaluation expectation.
 
 ### Notes on Case Handling
 
@@ -368,9 +380,9 @@ def turn_day(days, day_bit, is_on):
     # ...implementation
     pass
 
-# when used
-print(bin(turn_day(0b0000000, SAT, is_on=True)))  # prints out 0b1000000
-print(bin(turn_day(0b1111111, WED, is_on=False)))  # prints out 0b1110111
+# tests
+assert bin(turn_day(0b0000000, SAT, is_on=True)) == '0b1000000'
+assert bin(turn_day(0b1111111, WED, is_on=False)) == '0b1110111'
 ```
 
 ### Problem
@@ -390,6 +402,6 @@ def is_day_on(days, day_bit):
     # ...implementation
     pass
 
-print(is_day_on(0b1111111, WED))  # prints True
-print(is_day_on(0b1110111, WED))  # prints False
+assert is_day_on(0b1111111, WED)
+assert not is_day_on(0b1110111, WED)
 ```
