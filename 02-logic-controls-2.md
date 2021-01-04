@@ -62,6 +62,10 @@ Typically bitmasking is used for system configurations and ID arrangements (such
 * Compactness - a single value is stored and utilized for its underlying binary representation, where each bit is a distinct configuration.
 * Efficiency - the software can perform multiple adjustments in a single operation.
 
+Conceptually bitwise operations would resemble something similar to the [string indexing](01-immediate-applications-2.md#text-processing-continued) but in a reverse order:
+
+![bitwise](https://i.imgur.com/UZCUbjN.png)
+
 Similar to how [we handle precision-sensitive arithmetic](01-immediate-applications-1.md#fixed-point-numbers), the trade-off here is that it requires implicit knowledge of what each bit represents. This issue can be mitigated by abstracting away the implicit knowledge and expose a well <a name="turn-on-day"></a>defined interface for its users:
 
 ```python
