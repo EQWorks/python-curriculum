@@ -44,6 +44,8 @@ True
 
 ![bitwise-shift](https://i.imgur.com/gSfrIOx.png)
 
+### Bitmasking
+
 But more broadly, bitwise operations are used as bitmasking, where a single value is used for its bit-level information:
 
 ```python
@@ -230,7 +232,9 @@ Traceback (most recent call last):
 Exception: x and y need to be real numbers or base-10 number strings
 ```
 
-Python successfully handles the initial `ValueError` and raises the explicit `Exception` with a custom message we define along with the original. The explicitness gives the users of this function some extra insights on both the technical details of _where_ things failed (the original `ValueError` at the statement `x = int(x)`) and _why_ it failed with the custom message conveying the intended usage patterns (the explicitly raised `Exception`). Whether to raise an explicit exception is usually a judgment call depending on the intended audience and their domain expertise of the subject. One can argue that the original `ValueError` would suffice, in which case:
+Python successfully handles the initial `ValueError` and raises the explicit `Exception` with a custom message we define along with the original. The explicitness gives the users of this function some extra insights on both the technical details of _where_ things failed (the original `ValueError` at the statement `x = int(x)`) and _why_ it failed with the custom message conveying the intended usage patterns (the explicitly raised `Exception`).
+
+Whether to raise an explicit exception is usually a judgment call depending on the intended audience and their domain expertise of the subject. One can argue that the original `ValueError` would suffice, in which case:
 
 ```python
 '''module: utility.py'''
@@ -288,11 +292,13 @@ AssertionError
 
 As demonstrated from the above example, when the evaluation is expected (truthy), it would result in nothing, as in _no news is good news_. Otherwise, it raises an `AssertionError` to signify the mismatch of evaluation expectation.
 
-### Notes on Case Handling
+### Notes on Logic Controls
 
 The use of additional conditions to be more comprehensive always has its limit inherited from humans. Every line of code added to handle more cases may cause regression and break existing functionality, sometimes costing more than what it would gain.
 
 Comparatively, uncareful, and abusive error controls may hide too much useful error information that could otherwise help its makers to improve it.
+
+![conditions-vs-error-controls](https://i.imgur.com/Bq3k73X.png)
 
 While there is no definitive answer on where to draw the line on when to apply which type of case handling, makers usually need to consider many factors. To name a few:
 
