@@ -75,97 +75,20 @@ Similar to how [we handle precision-sensitive arithmetic](01-immediate-applicati
 A (near) real-world Python example of dayparting application:
 
 ```python
-'''module: main.py'''
-SUN = 0
-MON = 1
-TUE = 2
-WED = 3
-THU = 4
-FRI = 5
-SAT = 6
-
-def turn_on_day(days, day_bit):
-    return days | (1 << day_bit)
-
-# 7 days in bits, from right-to-left, SUN to SAT
-days = 0b0000000
-# turn on SAT
-days = turn_on_day(days, SAT)
-# print out its binary representation
-print(bin(days))  # 0b1000000
-```
-
-The example above is a _module_ (notice the lack of interactive prompt `>>> `), typically represented as a file with an extension of `.py`, the third abstraction building block after previously introduced _variables_ and _functions_.
-
-There are a few details to be noticed.
-
-### Scopes
-
-```python
-SCOPE = 'this is outer'
-
-def scope_test():
-    print(SCOPE)  # this is outer
-    SCOPE = 'this is inner'
-    print(SCOPE)  # this is inner
-
-print(SCOPE)  # this is outer
-```
-
-* The first `SCOPE` variable defined outside of and before the `scope_test()` function is at the module-scope, which we can access throughout the module.
-* The first `print()` function call inside the `scope_test()` function refers to the module-scope (the outer scope) version of the `SCOPE` variable since we do not define any variable of the same name before this call.
-* The `SCOPE` variable assignment statement after the first `print()` function call is a newly defined local variable that overrides its outer counterpart.
-* The second `print()` function call at the end of the `scope_test()` function refers to the function-scope (the inner/local scope) version of `SCOPE` variable.
-* The third `print()` function outside of and after the `scope_test()` function is only aware of the first `SCOPE` variable as it has no visibility to the inner-function-scope of the `scope_test()` function.
-
-### Constants
-
-By convention, variables live in the module-scope are typically capitalized and emphasized as shared _constants_ that are not usually re-assigned.
-
-### Usage
-
-There is no notion of `return` at the module-scope:
-
-```python
-'''module: main.py'''
-def hours_from(x, y):
-    z = str((x + y) % 24).zfill(2) + ':00'
-    return z
-
-hours_from(4, 54321)  # this evaluates into '13:00'
-                      # but that only stays within the module-scope
-```
-
-And can be used as so:
-
-```shell
-% python main.py
-```
-
-* The `%` is similar to `>>> `, which is known as a system-level command-line prompt. It may differ from one operating system to another.
-* Unlike the Python prompt, it is not specific to the Python runtime. The first command is to let the command-line know that we intend to invoke a Python module named `main.py` through the Python runtime.
-
-The above command will result in no visual output because:
-
-1. What we define in the module-scope, stays in that scope; and
-2. What runs within the Python runtime, stays there too.
-
-To command the program to give us visual outputs, we need to go through a common interface that the operating system exposes, and that interface varies across operating systems. Fortunately, the Python programming language has that abstraction covered for us through the already seen `print()` function:
-
-```python
-'''module: main.py'''
-def hours_from(x, y):
-    z = str((x + y) % 24).zfill(2) + ':00'
-    return z
-
-print(hours_from(4, 54321))  # display outside of the Python process
-```
-
-When used:
-
-```shell
-% python main.py
-13:00
+>>> SUN = 0
+>>> MON = 1
+>>> TUE = 2
+>>> WED = 3
+>>> THU = 4
+>>> FRI = 5
+>>> SAT = 6
+>>> def turn_on_day(days, day_bit):
+...     return days | (1 << day_bit)
+...
+>>> days = 0b0000000  # 7 days in bits, from right-to-left, SUN to SAT
+>>> days = turn_on_day(days, SAT)  # turn on SAT
+>>> bin(days)  # examine the binary string representation of resulting days
+'0b1000000'
 ```
 
 ## Error Controls and Controlled Errors
@@ -250,7 +173,9 @@ def hours_from(x, y):
     return z  # return the value of z
 ```
 
-A module can be imported within other modules, or the Python interactive shell, and the members of the module such as the function `hours_from` used:
+We can use modules by importing them inside of other modules or in the Python interactive shell. They are the third reusability building block after the acquainted variables and functions.
+
+The members of the `utility` module such as the function `hours_from` can be accessed as such:
 
 ```python
 >>> import utility
