@@ -17,7 +17,11 @@ Boolean operations are useful for conditional logic controls and truthy value fi
 3
 ```
 
-Those numbers began with `0b` are integers expressed directly in their binary representations. The built-in function `bin` translates a regular integer (of base 10) to its binary string representation. And finally, the `int` built-in function converts the binary string representation back to an integer, with a second argument to specify its base.
+Those numbers that begin with `0b` are integers expressed directly in their binary representations. The built-in function `bin` translates a regular integer (of base 10) to its binary string representation. And finally, the `int` built-in function converts the binary string representation back to an integer, with a second argument to specify its base.
+
+Conceptually bitwise representations resemble something similar to the [string indexing](01-immediate-applications-2.md#text-processing-continued) but in a reverse order. To translate a binary representation back to its base-10 integer form:
+
+![binary-conversion](https://i.imgur.com/wIMNUpr.png)
 
 There are some other bitwise operations such as `<<` (left shift) and `>>` (right shift) that shifts all bits toward a desired direction:
 
@@ -31,12 +35,14 @@ There are some other bitwise operations such as `<<` (left shift) and `>>` (righ
 Bitwise shifts can be used to emulate integer multiplications and divisions:
 
 ```python
->>> x = 3
+>>> x = 5
 >>> x * 2 == x << 1
 True
 >>> x // 2 == x >> 1
 True
 ```
+
+![bitwise-shift](https://i.imgur.com/gSfrIOx.png)
 
 But more broadly, bitwise operations are used as bitmasking, where a single value is used for its bit-level information:
 
@@ -62,11 +68,11 @@ Typically bitmasking is used for system configurations and ID arrangements (such
 * Compactness - a single value is stored and utilized for its underlying binary representation, where each bit is a distinct configuration.
 * Efficiency - the software can perform multiple adjustments in a single operation.
 
-Conceptually bitwise operations would resemble something similar to the [string indexing](01-immediate-applications-2.md#text-processing-continued) but in a reverse order:
-
-![bitwise](https://i.imgur.com/UZCUbjN.png)
-
 Similar to how [we handle precision-sensitive arithmetic](01-immediate-applications-1.md#fixed-point-numbers), the trade-off here is that it requires implicit knowledge of what each bit represents. This issue can be mitigated by abstracting away the implicit knowledge and expose a well <a name="turn-on-day"></a>defined interface for its users:
+
+![implicit-bits](https://i.imgur.com/r2FPguQ.png)
+
+A (near) real-world Python example of dayparting application:
 
 ```python
 '''module: main.py'''
@@ -79,12 +85,14 @@ FRI = 5
 SAT = 6
 
 def turn_on_day(days, day_bit):
-    return days | (1 << day)
+    return days | (1 << day_bit)
 
 # 7 days in bits, from right-to-left, SUN to SAT
 days = 0b0000000
-# turn on Monday
-print(bin(turn_on_day(days, MON)))  # 0b1000000
+# turn on SAT
+days = turn_on_day(days, SAT)
+# print out its binary representation
+print(bin(days))  # 0b1000000
 ```
 
 The example above is a _module_ (notice the lack of interactive prompt `>>> `), typically represented as a file with an extension of `.py`, the third abstraction building block after previously introduced _variables_ and _functions_.
