@@ -195,7 +195,7 @@ While this approach does not require explicit knowledge of the form of the funct
 
 We may practice the same control over the usage of the `str()` function. But it is not necessary since it is much more lenient than the `int()` function.
 
-As a maker, it would be your executive decision to make on how to handle the error. In the example, we instruct the function to an early exit by `return None`. `None` is a data type in Python, with its only value being `None`. When there is only `return` with nothing for it, Python implies it as `return None`.
+As a maker, it would be your executive decision to make on how to handle the error. In the example, we instruct the function to an early exit by `return None`. `None` is a data type in Python, with its only value being `None`. When there is only a `return` with nothing for it, Python implies it as `return None`. `None` is also conditionally [falsy](02-logic-controls-1.md#truthy-falsy-ternary).
 
 ### Controlled Errors
 
@@ -300,18 +300,39 @@ Comparatively, uncareful, and abusive error controls may hide too much useful er
 
 ![conditions-vs-error-controls](https://i.imgur.com/Bq3k73X.png)
 
-While there is no definitive answer on where to draw the line on when to apply which type of case handling, makers usually need to consider many factors. To name a few:
-
-* Whether the handling is ethical.
-* Whether the handling adds obscure cases or contradicts with existing ones.
-* Whether the handling is simple to explain.
-* Whether the handling is simple to use.
-* Whether the handling adds to the technical debt or the cost of replacement.
-* ...
-
-When the problem of choice presents itself, and there is insufficient supporting information to consider all factors, makers often make peace with simplicity. As the Unix Philosophy describes, _Do One Thing and Do it Well_, embracing simplicity has become the mainstream wisdom to apply to at least a unit abstraction level, such as functions.
+To decide when to apply which type of logic controls, makers usually need to consider many factors. When there is insufficient supporting information to consider comprehensively, makers often make peace with simplicity. As the Unix Philosophy describes, _Do One Thing and Do it Well_, embracing simplicity has become the mainstream wisdom to apply to at least a unit abstraction level (such as Python functions). Makers can then build more complex systems through the composition of these simple unit abstractions.
 
 Often an elegant solution can cover most, if not all of the intended cases while being simple to implement, reason with, and use. It is also not rare that sometimes no solution is the most elegant solution.
+
+Let us refer to "The Zen of Python, by Tim Peters":
+
+```python
+>>> import this
+The Zen of Python, by Tim Peters
+
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!
+>>>
+```
+
+We will see more capable tools that Python has to offer in this series, and at times they would seem viable as alternatives. Use the above as a general guideline when in doubt which one is to pick for the objective at hand.
 
 ## Exercises
 
