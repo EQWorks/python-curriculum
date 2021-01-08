@@ -119,7 +119,7 @@ What about the multiplication operator `*`?
 
 The expression resulted in a repetition of the string `'9'` by `9` times. It means that the operator `*` works between `str` and `int`, but causes an entirely different effect than what it does between two numbers.
 
-Imagine if Bart knew this:
+#### Imagine if Bart knew this:
 
 ```python
 >>> 'I WILL NOT INSTIGATE REVOLUTION' * 18
@@ -152,7 +152,7 @@ Recall the example of modulo operation on finding the hour. Let us put that toge
 '01:00'
 ```
 
-## First Layer of Abstraction - Variables and Functions
+## First Reusability - Variables and Functions
 
 At this point, the manual work is shifted, not lifted:
 
@@ -197,7 +197,9 @@ But this triggers an error that _variable_ name `'x'` is not defined. Notice how
 
 Better, at least now we can copy/paste a fixed expression `str((x + y) % 24).zfill(2) + ':00'`, and only change intended variables `x` and `y` as needed. Before we move on, there is an interesting thing happening here. Notice how `x` and `y`, as variables, get _re-assigned_ a couple of times. The value a variable holds is always according to the most recent assignment.
 
-How can we truly abstract away the expression `str((x + y) % 24).zfill(2) + ':00'` or _"find out y hours from x is"_? By defining a custom function:
+How can we truly abstract away the expression `str((x + y) % 24).zfill(2) + ':00'` or _"find out y hours from x is"_?
+
+#### By defining a custom function:
 
 ```python
 >>> def hours_from(x, y):

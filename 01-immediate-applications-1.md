@@ -53,7 +53,7 @@ It is known as a _floating-point arithmetic error_ or _round-off error_ since re
 
 So by design, this type of error cannot be eliminated in digitally based systems but can only be managed by taking trade-offs between ranges and precisions. When it is not managed well, [it resulted in matters of life and death](https://en.wikipedia.org/wiki/Round-off_error#Real_world_example:_Patriot_missile_failure_due_to_magnification_of_roundoff_error).
 
-For this reason, precision-sensitive data usually gets stored and calculated in fixed-point numbers -- or integers with an implicit definition of the fraction scale it represents. For instance, if we want to perform the same division, instead of `10.00 / 3`, we will scale everything to cents (1/100 of a dollar):
+For this reason, precision-sensitive data usually gets stored and calculated in <a name="fixed-point-numbers" href="https://en.wikipedia.org/wiki/Fixed-point_arithmetic">fixed-point numbers</a> -- or integers with an implicit definition of the fraction scale it represents. For instance, if we want to perform the same division, instead of `10.00 / 3`, we will scale everything to cents (1/100 of a dollar):
 
 ```python
 >>> 1000 / 3  # 1000 cents
