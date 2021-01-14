@@ -10,7 +10,8 @@ _WIP_
     * [2/2 - Text Processing (continued), Type Casting, First Reusability - Variables and Functions](01-immediate-applications-2.md)
 * Part 02 - Logic Controls
     * [1/2 - Conditions, Boolean Operations](02-logic-controls-1.md)
-    * [2/2 - Bitwise Operations, Error Controls and Controlled Errors](02-logic-controls-2.md)
+    * [2/2 - Error Controls and Controlled Errors](02-logic-controls-2.md)
+    * [extra - Bitwise Operations](02-logic-controls-extra.md)
 * Part 03 - Data Containers and Repetition
 
 ## On Exercises
