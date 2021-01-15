@@ -65,6 +65,8 @@ The revised example from above takes a variable `b` and divides it by `a`. While
 we cannot perform bob (<class 'str'>) / 5 (<class 'str'>
 ```
 
+_Note_: you can find more details about the `str.format()` method in its [official documentation](https://docs.python.org/3.8/library/stdtypes.html#str.format).
+
 We can apply error control in our tried-and-true function `hours_from()` fit in a module named `utility.py`:
 
 ```python
