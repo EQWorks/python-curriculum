@@ -98,7 +98,7 @@ A few pieces to digest from above.
 
 Unlike the strategy of [utilizing conditions to adapt the function](02-logic-controls-1.md#hours-from), which requires explicit knowledge of the form of the arguments, `try/except` essentially tells the users of the function that it is not possible. Instead of raising an exception, it does so gracefully.
 
-While this approach does not require explicit knowledge of the form of the function argument values, it compromises by acknowledging what may violate the usage of the `int()` function, the part of the logic that we leverage but have no control over its inner mechanism. In this case, it would raise a `ValueError` when it cannot parse the supplied value as a base-10 integer. The `ValueError` handling is still conditional, but vaguer than explicit conditions through `if` statements, yet less so than [blanket exception handling](#blanket-exception) with no type of errors specified as seen from the zero division example.
+This approach acknowledges what may violate the usage of the `int()` function, the part of the logic that we leverage but have no control over its inner mechanism. In this case, it would raise a `ValueError` when it cannot parse the supplied value as a base-10 integer. The `ValueError` handling is still imperative as the conditional approach, but vaguer than explicit conditions through `if` statements, yet less explicit than blanket exception handling similar to the zero division example.
 
 We may practice the same control over the usage of the `str()` function. But it is not necessary since it is much more lenient than the `int()` function.
 
@@ -139,7 +139,7 @@ Traceback (most recent call last):
 Exception: x and y need to be real numbers or base-10 number strings
 ```
 
-Python successfully handles the initial `ValueError` and raises the explicit `Exception` with a custom message we define along with the original. The explicitness gives the users of this function some extra insights on both the technical details of _where_ things failed (the original `ValueError` at the statement `x = int(x)`) and _why_ it failed with the custom message conveying the intended usage patterns (the explicitly raised `Exception`).
+Python successfully handles the initial `ValueError` and raises the explicit `Exception` with a custom message, providing more insights on "where" and "why" things went wrong.
 
 Whether to raise an explicit exception is usually a judgment call depending on the intended audience and their domain expertise of the subject. One can argue that the original `ValueError` would suffice, in which case:
 
@@ -197,19 +197,19 @@ Traceback (most recent call last):
 AssertionError
 ```
 
-As demonstrated from the above example, when the evaluation is expected (truthy), it would result in nothing, as in _no news is good news_. Otherwise, it raises an `AssertionError` to signify the mismatch of evaluation expectation.
+As demonstrated from the above example, when the evaluation is expected (truthy), it would result in nothing, as in _no news is good news_. Otherwise, it raises an `AssertionError` to signify the mismatch of evaluation expectations.
 
 ## Notes on Logic Controls
 
 The use of additional conditions to be more comprehensive always has its limit inherited from humans. Every line of code added to handle more cases may cause regression and break existing functionality, sometimes costing more than what it would gain.
 
-Comparatively, uncareful, and abusive error controls may hide too much useful error information that could otherwise help its makers to improve it.
+Comparatively, uncareful or abusive error controls may hide too much useful error information that could otherwise help makers to improve software quality.
 
 ![conditions-vs-error-controls](https://i.imgur.com/Bq3k73X.png)
 
-To decide when to apply which type of logic controls, makers usually need to consider many factors. When there is insufficient supporting information to consider comprehensively, makers often make peace with simplicity. As the Unix Philosophy describes, _Do One Thing and Do it Well_, embracing simplicity has become the mainstream wisdom to apply to at least a unit abstraction level (such as Python functions). Makers can then build more complex systems through the composition of these simple unit abstractions.
+To decide when to apply which type of logic controls, makers usually need to consider many factors that are not always available or foreseeable. So they break the scope down to smaller unit abstractions (such as Python function) and compose more complex systems from there.
 
-Often an elegant solution can cover most, if not all of the intended cases while being simple to implement, reason with, and use. It is also not rare that sometimes no solution is the most elegant solution.
+Often an elegant solution can cover most or all intended cases while being simple to implement, reason with, and use. It is also not rare that sometimes nothing is the most elegant solution.
 
 Let us refer to "The Zen of Python, by Tim Peters":
 
@@ -245,7 +245,7 @@ We will see more capable tools that Python has to offer in this series, and at t
 
 ### Problem 03 - Sanitize hours
 
-Recall the `hours_from()` function, we have identified that the usage of the `int()` function on the input arguments `x` and `y` is likely the root of most issues we have seen.
+Recall the `hours_from()` function where we have identified that the usage of the `int()` function on the input arguments is likely the root of most issues we have seen.
 
 Implement a `sanitize_hour()` function and use it within `hours_from()` function as such:
 
@@ -283,4 +283,4 @@ assert hours_from('8', 12345) == '17:00'
 assert hours_from('abc', 12345) is None
 ```
 
-Try to apply a few ways using various logic controls such as conditions and error controls to accomplish the solution. See for yourself what your preference is.
+Try to apply a few ways with conditions and error controls to accomplish the solution. See for yourself what your preference is.
