@@ -226,3 +226,33 @@ mutate_row(new_row1)  # new_row1 is now mutated
 ```
 
 The greater ability that a mutable sequence type, like `list`, comes with inherently greater responsibility for its users. As a common convention and etiquette, abstractions involving mutable data containers usually carry out immutable operations (like `convert_row()`, instead of `mutate_row()`) to offer flexibility and undesired _side effects_.
+
+<!-- TODO:
+The `covert_row()` function employs an _imperative_ approach and can be quite verbose and tedious to perform, especially if we want to operate based on a given mutable sequence type like our data rows. Fortunately, Python provides some alternatives that are more succinct.
+
+### Shallow Copy
+
+The intention of the use of a for loop to generate `new_row` is basically to copy the original list so that any potential mutation conducted on `new_row` does not carried over to the original.
+
+...a declarative approach list.copy()...
+
+### Comprehension
+
+...middle ground between declarative and verbose imperative...
+
+...final version of the full script of play_list.py...
+-->
+
+## Exercises
+
+### Problem 01 - Profit margin, win rate, and CTR
+
+Take the final `play_list.py` as a base, implement:
+
+* `add_profit_margin()` - to compute the profit margin based on `profit / spend * 100%`
+* `add_win_rate()` - to compute the win rate based on `impressions / bids * 100%`
+* `add_ctr()` - to compute the click through rate based on `clicks / impressions * 100%`
+
+All functions should accept a row, compute the value, and add the intended column value to a copy of the input row so it is not mutated.
+
+<!-- TODO: show sample output etc. -->
