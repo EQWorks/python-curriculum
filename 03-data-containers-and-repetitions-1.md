@@ -24,7 +24,7 @@ csv_header = ','.join(header)
 print(csv_header)
 ```
 
-In fact we can loosely translate a `list` into a CSV (comma-separate-values) formatted string by leveraging a `str.join()` method.
+In fact we can loosely translate a `list` into a CSV (comma-separated values) formatted string by leveraging a `str.join()` method.
 
 ```shell
 % python norse_shop.py
@@ -175,7 +175,7 @@ The issue is trivial to fix. Before we attempt to do so, let us revisit the func
 
 Mutations exist for some good reasons. The most prominent is that it allows us to make in-place operations to a data container without provisioning extra memory (space) overhead to achieve the same objective.
 
-But in this case, if we do tradeoff some extra cost on space, we would retain the integrity of the original rows to carry on the intended computations for _profit_ in a straightforward manner.
+But in this case, if we do trade off some extra cost on space, we would retain the integrity of the original rows to carry on the intended computations for _profit_ in a straightforward manner.
 
 ```python
 '''norse_shop.py'''
@@ -228,7 +228,7 @@ The capability that a mutable data type (such as `list`) grants require greater 
 
 ## List Mechanisms
 
-## Shallow Copy
+### Shallow Copy
 
 The intention to use a `for` loop to generate `new_row` is basically to copy the original list so that any potential mutation conducted on `new_row` does not contaminate the original. Python lists come with a built-in method for such a purpose:
 
@@ -302,7 +302,7 @@ assert b[2] == 10
 assert a[2] == 1
 ```
 
-## Comprehensions
+### Comprehensions
 
 In computer science terms, copy a list using a `for` loop is _imperative_ (programmers describe the "how"), whereas the `list.copy()` method represents a _declarative_ way (programmers state the "what").
 
@@ -342,7 +342,7 @@ for row in [row1, row2]:
     print(csv_row)
 ```
 
-## Concatenations
+### Concatenations
 
 Like strings, lists can be concatenated too:
 
