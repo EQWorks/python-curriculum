@@ -88,11 +88,11 @@ TypeError: 'str' object does not support item assignment
 'Banana'
 ```
 
-Individual members of a string cannot be mutated by assignment, while in a list they can.
+Individual items of a string cannot be mutated by assignment, while in a list they can.
 
 ## For Loop
 
-Performing operations on individual members of a list one by one _works_ but feels like a chore. Through a `for` loop we can automate that chore away:
+Performing operations on individual items of a list one by one feel like a chore. Through a `for` loop we can automate that chore away:
 
 ```python
 '''norse_shop.py'''
@@ -106,12 +106,12 @@ print(csv_row1)
 ```
 
 To digest the code snippet above:
-1. A `for` loop iterates `in` a `range()` based on the length of the targeting `list` (`len(row1)`).
-2. Each iteration gets an `i` value that ranges from `0` to the length of the list minus 1, which corresponds to each index position of the list members.
+1. A `range()` of item indexes of the targeting `list` (`row1`) with the help of the `len()` function.
+2. A `for` loop iterates `in` that range of indexes, where each temporal variable `i` represents the positional index from left-to-right (or from 0 to length - 1) corresponds to each list item.
 3. An `if` condition specifies our intent to cast non-string values into the `str` type.
-4. When the condition from point 3 is satisfied, we _mutate_ the member at that given index `i` by casting it into the `str` type.
+4. When the condition from point 3 is satisfied, we _mutate_ the item at that given index `i` by casting it into the `str` type.
 
-_Note_: the `if` condition within the `for` loop does not serve a practical purpose and removing it entirely works because `str('already string') == 'already string'`, and the computational cost is negligible in this particular case.
+_Note_: the `if` condition within the `for` loop does not serve a practical purpose. Removing it works because `str('already string') == 'already string'`, and the computational cost is negligible in this particular case.
 
 Let us wrap this operation into a function and apply it to both rows through another `for` loop:
 
@@ -136,6 +136,9 @@ for row in [row1, row2]:
 |---------|-------|------|------|---------------|
 |Yggdrasil|790.2  |477.85|53    |7              |
 |Valhalla |1700.65|1500  |11    |10             |
+
+
+Notice the difference in the `for` loop usages. Unlike in the `mutate_row()` function, the outer loop iterates through a list of lists by _value_ (instead of by index). Both cases are an iteration of sequences with different objectives and access patterns.
 
 ## Beware of Mutations
 
@@ -221,7 +224,7 @@ for i in range(len(row1)):
 mutate_row(new_row1)  # new_row1 is now mutated
 ```
 
-The capability that a mutable data type grants (such as `list`) require greater responsibility from its users. As a convention and etiquette, abstractions involving mutable data types usually carry out immutable operations.
+The capability that a mutable data type (such as `list`) grants require greater responsibility from its users. As a convention and etiquette, abstractions involving mutable data types usually carry out immutable operations.
 
 ## List Mechanisms
 
