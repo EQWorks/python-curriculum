@@ -358,6 +358,63 @@ print(csv_header)
 |---------|-------|------|------|---------------|-----------------|-------------------|------------------|-----------------|
 |         |       |      |      |               |                 |                   |                  |                 |
 
+### Unpacking
+
+Sequences can be unpacked through prepending a `*` operator before it within a callable (such as a function call) context:
+
+```python
+'''mad_libs.py'''
+header = ['poi', 'revenue', 'cost', 'visits', 'unique_visitors']
+
+print('''
+    Around this {0}
+    Our {1} is great
+    While the {2} is minimal
+    We gather massive {3}
+    From quite a small number of {4}
+'''.format(*header))
+```
+
+```shell
+% python mad_libs.py
+
+    Around this poi
+    Our revenue is great
+    While the cost is minimal
+    We gather massive visits
+    From quite a small number of unique_visitors
+```
+
+For some more random and comical effect:
+
+```python
+'''mad_libs.py'''
+import random
+
+header = ['poi', 'revenue', 'cost', 'visits', 'unique_visitors']
+random.shuffle(header)
+
+print('''
+    Around this {0}
+    Our {1} is great
+    While the {2} is minimal
+    We gather massive {3}
+    From quite a small number of {4}
+'''.format(*header))
+```
+
+```shell
+% python mad_libs.py
+
+    Around this revenue
+    Our visits is great
+    While the cost is minimal
+    We gather massive unique_visitors
+    From quite a small number of poi
+```
+
+_Note_: `random` is a Python built-in module and `shuffle()` is a function it offers to randomly shuffle a given mutable sequence in-place (by performing a mutation of the original). You can find more about this module in its [official documentation](https://docs.python.org/3.8/library/random.html).
+
 ## Exercises
 
 ### Problem 01 - Profit margin, average revenue, average visits
