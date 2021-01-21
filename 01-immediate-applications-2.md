@@ -2,7 +2,7 @@
 
 ## Text Processing (continued)
 
-As a sequence type, strings have a notion of "index", meaning each character of a string value corresponds to a positional value, from left-to-right:
+As a sequence type, strings have a notion of _indexes_, meaning each character of a string value corresponds to a positional number, from left-to-right:
 
 ```python
 >>> 'make puppies great again! 🐶'[0]
@@ -12,7 +12,7 @@ As a sequence type, strings have a notion of "index", meaning each character of 
 '🐶'
 ```
 
-While `0` means the first character in the sequence, `-1` here means (conceptually) the last, or the first character from the reverse-order (right-to-left). In actuality, it is a shorthand of the _(length of the string - 1)th_ (from left-to-right). Manually counting the length (number of characters) in a string can be tedious. Fortunately, there's a built-in _function_ for that:
+While `0` means the first character in the sequence, `-1` here means (conceptually) the last one, or the first character from the reverse-order (right-to-left). In actuality, it is a shorthand of the n-th item (where n is the length of the string - 1) from left-to-right. Manually counting the number of characters can be tedious. Fortunately, there is a built-in _function_ for that:
 
 ```python
 >>> len('make puppies great again! 🐶')
@@ -34,9 +34,9 @@ The indexing notion allows us to do a bit more than pinpoint a particular charac
 'puppies'
 ```
 
-The above is a _range_ operation that takes the characters from index 5 (included) to index 12 (excluded). Another way to interpret it is that it takes the characters from index 5 and count up to 7 (12 - 5) characters.
+The above is a _range_ operation that takes the characters from index 5 (included) to index 12 (excluded). Another interpretation is that it takes the characters from index number 5 and count up to 7 (12 - 5) characters.
 
-You can even specify the third variation to "jump" the sequence:
+You can even specify the third variation to _jump_ the sequence:
 
 ```python
 >>> 'make puppies great again! 🐶'[5:12:4]
@@ -68,7 +68,7 @@ _Functions_ are similar to _methods_ of given _types_ in the sense that both are
 <class 'float'>
 ```
 
-Follows the same expression evaluation rules we have collected so far, except that the `()` here is not for precedence-order alteration but results in a similar effect:
+The above follows the same expression evaluation rules we have collected so far, except that the `()` here is not for precedence-order alteration but results in a similar effect:
 1. `9 / 4` gets evaluated into `2.25`.
 2. `type(2.25)` gets evaluated into `<class 'float'>`.
 
@@ -87,7 +87,7 @@ Now we are equipped with a tool to verify types, so we will not get lost. Let us
 
 `str` here is both a type _class_, as well as a built-in function that attempts to cast the value given to its callable enclosure to the corresponding type. In technicality, this is an example of a class _constructor_, a method used to construct an instance of the said class.
 
-Before diving into what has been given by the type casting, let's see what it has taken away:
+Before diving into what has been given by the type-casting, let us see what it has taken away:
 
 ```python
 >>> str(9) / 4
@@ -96,7 +96,7 @@ Traceback (most recent call last):
 TypeError: unsupported operand type(s) for /: 'str' and 'int'
 ```
 
-Quite apparently, it fails. The error above means that by converting a number `9` into a string, it loses the operability to be divided, among others:
+Quite apparently, it fails. The error above means that by converting a number `9` into a string, it loses the operability for divisions and more:
 
 ```python
 >>> 4 + str(9)
@@ -129,7 +129,7 @@ Instead of suffering this:
 
 ![Bart](https://i.imgur.com/8s6NSE9.png)
 
-Similarly the addition operator `+` is allowed on strings:
+Similarly, the addition operator `+` is allowed on strings:
 
 ```python
 >>> str(9) + str(4)
@@ -145,7 +145,7 @@ And now let us see what the "stringified" number can do:
 '09'
 ```
 
-Recall the example of modulo operation on finding the hour. Let us put that together with the newly acquired tool of `str.zfill()` method and string concatenation to present the result time in a more friendly manner:
+Recall the example of modulo operation on finding the hour. Let us put that together with the newly acquired tool of `str.zfill()` method and string concatenation to present the result time in a friendlier manner:
 
 ```python
 >>> str((16 + 12345) % 24).zfill(2) + ':00'
@@ -212,16 +212,16 @@ How can we truly abstract away the expression `str((x + y) % 24).zfill(2) + ':00
 '13:00'
 ```
 
-Let us dissect out the anatomy of this function first (mentally ignore the interactive prompt symbols `>>> ` and `...`):
+Let us dissect the anatomy of this function first (mentally ignore the interactive prompt symbols `>>> ` and `...`):
 * `def` is a _keyword_ that leads to a function definition statement.
 * The name of the function is `hours_from`.
-* The parentheses after the function name signifies that as a function, it is a "Callable", and within are what this function would accept as "arguments" or values passed into the function.
-* After the colon `:` and below, each statement with an indentation (conventionally 4-space), would be the "body" of the function, which is a block of code that does something but only within the _scope_ of the function. In this case, it evaluates our "hours from" _algorithm_ and assigns the value into a _local_ variable `z`.
-* `return` _keyword_ is used to state the value to be passed out of the function. In this case, it returns the value of variable `z`.
+* The parentheses after the function name signify that as a function, it is a _Callable_, and within are what this function would accept as _arguments_ or values passed into it.
+* After the colon (`:`) and below, each statement with an indentation (conventionally 4-space) would be the body. It is a block of code that does something but only within the _scope_ of the function. In this case, it evaluates our _algorithm_ and assigns the value into a _local_ variable `z`.
+* The `return` _keyword_ is used to state what to respond to the function call. In this case, it returns the value of variable `z`.
 
 ![func](https://i.imgur.com/X7KBrAH.png)
 
-As a subjective matter, and since now we are equipped with the some knowledge of variables, let us rewrite this function to be a bit more friendlier to read:
+As a subjective matter, since now we are equipped with some knowledge of variables, let us rewrite this function to be a bit friendlier to read:
 
 ```python
 >>> def hours_from(x, y):
@@ -263,7 +263,7 @@ A successful example of using this function should give you:
 '19:25'
 ```
 
-_Bonus_: how would you revise this function as `days_from()` that fit the description _"y days from x (o'clock) is z (o'clock)"_?
+_Bonus_: How would you revise this function as `days_from()` that fit the description _"y days from x (o'clock) is z (o'clock)"_?
 
 You may assume that `y` is in earth days, and there are no complexities such as leap years and daylight saving times involved. In short, you can assume a day is always 24 hours, and an hour is 60 minutes, and a minute is 60 seconds.
 
@@ -273,7 +273,7 @@ The new LOCUS marketplace launch is imminent. The design team proposes to cut do
 
 ![marketplace](https://i.imgur.com/xKN73Uq.png)
 
-Implement a function that takes an arbitrary string as an argument `s`, and another arbitrary integer as `l`, to achieve an effect so:
+Implement a function that takes an arbitrary string as an argument (`s`), and another arbitrary integer as `l`, to achieve an effect so:
 
 ```python
 >>> def cut(s, l):
@@ -289,4 +289,4 @@ Implement a function that takes an arbitrary string as an argument `s`, and anot
 
 * [Python Built-in Types](https://docs.python.org/3.8/library/stdtypes.html)
 * [Python Built-in Functions](https://docs.python.org/3.8/library/functions.html)
-* and [How to Help and Get Helped](README.md#how-to-help-and-get-helped) for general advices
+* and [How to Help and Get Helped](README.md#how-to-help-and-get-helped) for general advice.

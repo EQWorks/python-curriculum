@@ -111,7 +111,7 @@ To digest the code snippet above:
 3. An `if` condition specifies our intent to cast non-string values into the `str` type.
 4. When the condition from point 3 is satisfied, we _mutate_ the item at that given index `i` by casting it into the `str` type.
 
-_Note_: the `if` condition within the `for` loop does not serve a practical purpose. Removing it works because `str('already string') == 'already string'`, and the computational cost is negligible in this particular case.
+_Note_: The `if` condition within the `for` loop does not serve a practical purpose. Removing it works because `str('already string') == 'already string'`, and the computational cost is negligible in this particular case.
 
 Let us wrap this operation into a function and apply it to both rows through another `for` loop:
 
