@@ -14,7 +14,7 @@ _WIP_
     * [extra - Bitwise Operations](02-logic-controls-extra.md)
 * Part 03 - Data Containers and Repetitions
     * [1/3 - Lists, For Loop, Mutations](03-data-containers-and-repetitions-1.md)
-    * 2/3 - Dictionaries, While Loop, More Mutations
+    * [2/3 - Dictionaries, While Loop, Time Complexity](03-data-containers-and-repetitions-2.md)
     * 3/3 - Sets, Tuples
 
 ## On Exercises
