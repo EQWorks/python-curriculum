@@ -1,6 +1,6 @@
 # Part 03 - Data Containers and Repetitions (2/3)
 
-A list offers us simple access to its items through positional indexes. When the control of each item's positional correspondence is out of reach, we would need something that is more explicit to dictate what each value means.
+A list offers us simple access to its items through positional indexes. When the control of each item's positional correspondence is out of reach, we need something more explicit to dictate what each value means.
 
 ## Dictionaries
 
@@ -24,7 +24,7 @@ row2 = {
 }
 ```
 
-Consider the above example an extension from its [original form-factor](03-data-containers-and-repetitions-1.md#lists) from the `list` introduction. We gain per-value definition though `key: value` pairs by trading off positional significance, which consequently costing more computational space to contain such data. What we gain, like with a literal dictionary, is the direct access of definitions (the value) by looking up their keys:
+Consider the above example an extension from its [original form-factor](03-data-containers-and-repetitions-1.md#lists) from the `list` introduction. We gain per-value definition though `key: value` pairs by trading off positional significance, consequently costing more computational space to contain such data. What we gain, like with a literal dictionary, is the direct access of definitions (the value) by looking up their keys:
 
 ```python
 >>> from norse_dict import row1, row2
@@ -34,7 +34,7 @@ Consider the above example an extension from its [original form-factor](03-data-
 1500
 ```
 
-To access dictionary items, we employ a similar syntax of the positional index notion in a more literal sense.
+We employ a similar syntax of the positional index notion in a more literal sense to access dictionary items.
 
 Dictionaries are mutable like lists:
 
@@ -107,9 +107,9 @@ Traceback (most recent call last):
 IndexError: list index out of range
 ```
 
-From the above example, we can understand that it would be more difficult to use lists to work with data that has no guarantee of data consistency, since each index holds an implicit but also rigid definition of what each value represents.
+From the above example, we can understand that it would be more challenging to use lists to work with data with no guarantee of data consistency since each index holds an implicit and rigid definition of what each value represents.
 
-In contrast, dictionaries would suffer some other problem precisely due to how insignificant their `key: value` pairs are ordered:
+In contrast, dictionaries would suffer some other problem precisely due to how insignificant their `key: value` orders are:
 
 ```python
 '''norse_dict.py'''
@@ -128,9 +128,9 @@ for row in [row1, row2, row3]:
 |10       |1700.65|1500   |11    |Valhalla       |                |
 |Asgard   |3215.75|2845.79|265   |71             |{'open_days': [1, 2, 3, 4, 5], 'lat': 0.0, 'lon': 0.0, 'wiki_link': 'https://en.wikipedia.org/wiki/Asgard'}|
 
-Since `row2` has a different order of its `key: value` pairs than `row1`, and `row3` has an extra `key` that the other two do not have, we would get a not so useful of an output if we attempt to marshall the data into a CSV, and leave its readers puzzled in perpectual pondering.
+Since `row2` has a different order of its `key: value` pairs than `row1`, and `row3` has an extra `key` that the other two do not have, we would get a not so use of output if we attempt to marshall the data into a CSV, and leave its readers puzzled in perpetual pondering.
 
-One way to solve the header association issue is to pick one data row's keys as the anchor, so we can ensure a consistent order of the values of each row:
+One way to solve the header association issue is to pick one data row's keys as the anchor so that we can ensure a consistent order of the values of each row:
 
 ```python
 '''norse_dict.py'''
@@ -159,9 +159,9 @@ print_csv([row1, row2, row3])
 
 ## Sets
 
-The above solution resolves the order issue, but leaves out the keys/headers consistency problem intact.
+The above solution resolves the order issue but leaves out the keys/headers consistency problem intact.
 
-In an ideal world, we can probably get a staple list of headers that cover all possible `key: value` pairs we may receive over the wire. In reality, keys that do not have a meaningful value are often omitted for a very good reason to save transmission bandwidth and computational space cost. In such a scenario, a more robust solution may look as such:
+We can probably get a staple list of headers covering all possible `key: value` pairs we may receive over the wire in an ideal world. In reality, we often omit keys that do not have a meaningful value for an excellent reason to save transmission bandwidth and computational space cost. In such a scenario, a more robust solution may look as such:
 
 ```python
 '''norse_dict.py'''
@@ -196,7 +196,7 @@ The additional operations generate a `set` of `keys` that contain the union of a
 
 We use both `dict` and `list` data types to output CSVs as a form of a more universally accepted file format for data transmissions outside of the Python environment.
 
-Another popular choice of such format would be JSON (JavaScript Object Notation), which its `object` data type loosely correspond to Python `dict`, and its `array` data type loosely correspond to Python `list`:
+Another popular choice of such format would be JSON (JavaScript Object Notation), in which its `object` data type loosely correspond to Python `dict`, and its `array` data type loosely correspond to Python `list`:
 
 ```python
 '''norse_dict.py'''
@@ -253,9 +253,9 @@ The [`json` module](https://docs.python.org/3.8/library/json.html) is from the b
 
 ## While Loop
 
-So far we have done repetitions through the use of `for` loops. It is a very intuitive way to iterate over a finite number of values.
+So far, we have done repetitions through the use of `for` loops. It is a very intuitive way to iterate over a finite number of values.
 
-To work with iterative tasks that are indefinite in nature, Python offers the `while` loop for such occasions:
+To work with iterative tasks that are indefinite, Python offers the `while` loop for such occasions:
 
 ```python
 '''while_stream.py'''
@@ -279,10 +279,10 @@ while line is not None:
 ```
 
 Let us pick apart the above example:
-1. We import [`requests`](https://2.python-requests.org/en/master/), a Python module _not_ from its built-in standard library. It is a widely adopted Python module touting "HTTP for Humans ™".
-2. We perform a streaming `HTTP GET` request from the target URL `https://httpbin.org/stream/3`, which specifies the number of responses we would like is `3`.
-3. We initiate an iterator for the number of responses from the request, and then use the built-in `next()` function to obtain each line in a temporal manner.
-4. A `while` loop is conditioned to keep going as long as the temporal variable `line` is not `None`. Within the context of the `while` loop, after printing each available `line`, it gets re-assigned with the next one and defaults to `None` if no more.
+1. We import [`requests`](https://2.python-requests.org/en/master/), a Python module _not_ from its built-in standard library. It is a widely adopted Python module touting _HTTP for Humans ™_.
+2. We perform streaming `HTTP GET` request from the target URL `https://httpbin.org/stream/3`, which specifies the number of responses we would like is `3`.
+3. We initiate an iterator for the number of responses from the request and then use the built-in `next()` function to obtain each line.
+4. A `while` loop keeps going unless the temporal variable `line` is `None`. Within the context of the `while` loop, after printing each available `line`, it gets re-assigned with the next one and defaults to `None` if no more.
 
 Let us assume that the actual portion of the information we are interested in is the value corresponding to the `origin` key. What we can do is to :
 
@@ -292,7 +292,7 @@ Let us assume that the actual portion of the information we are interested in is
 '34.x.x.x'
 ```
 
-However, by the [open standard definition](https://www.json.org), the JSON `object` data type does not guarantee the order of its `key: value` pairs, while some of its implementations or materializations, such as Python (since v3.7) do guarantee so. This element of inconsistency means that the better approach to extract information we need would involve the use of the `json` module to load the given JSON string into a dictionary to achieve the task:
+The JSON `object` type, by [definition](https://www.json.org), does not guarantee `key: value` orders. This element of inconsistency means that the better approach to extract the information we need would involve the use of the `json` module to load the given JSON string into a dictionary to achieve the task:
 
 ```python
 '''while_stream.py'''
@@ -315,7 +315,7 @@ while line is not None:
 34.x.x.x
 ```
 
-The above `while` loop can actually fit in a `for` loop, given that the iterator implementation is finite:
+The above `while` loop can fit in a `for` loop, given that the iterator implementation is finite:
 
 ```python
 '''while_stream.py'''
@@ -328,7 +328,7 @@ for line in r.iter_lines():
     print(data.get('origin', 'No Trace'))
 ```
 
-Though for indefinitive use-cases, `while` loop may be more reasonable:
+Though for indefinite use-cases, `while` loop may be more reasonable:
 
 ```python
 '''guess_game.py'''
@@ -359,7 +359,7 @@ Guess between 0-100: 22
 22 is correct
 ```
 
-The `:=` operator is used as a way to reduce repetitive temporal variable assignments. In the absence of it, the same game may look like below:
+We use the `:=` operator as a way to reduce repetitive temporal variable assignments. In the absence of it, the same game may look like below:
 
 ```python
 '''guess_game.py'''
@@ -379,7 +379,7 @@ else:
     print('{} is correct'.format(guess))
 ```
 
-Nowadays, games are hardly interesting unless it can play by itself:
+Nowadays, games are hardly interesting unless they can play themselves out:
 
 ```python
 '''guess_game_auto.py'''
@@ -416,7 +416,7 @@ print('{0} is correct after {1} trials'.format(guess, trials))
 
 ## Loop Controls
 
-So far, we rely on either the definitive factors in the `for` loop, or the conditions in the `while` loop, to perform iterative tasks. Sometimes, explicit controls can be used for more programming flexibility:
+Sometimes, we can use direct controls for more flexibility, instead of relying on the decisive factors from a `for` loop or conditions from a `while` loop:
 
 ```python
 '''while_stream.py'''
@@ -443,7 +443,7 @@ ID: 7, origin: 35.x.x.x
 ID: 9, origin: 35.x.x.x
 ```
 
-The above example skips response lines with even `id` values by utilizing the `continue` statement. Similar to the use of `return` in the context of a function, it performs a conceptual _early exit_ that instructs Python to immediately carry on to the next available iteration without executing the remainder of the logic.
+The above example skips response lines with even `id` values by utilizing the `continue` statement. Similar to the use of `return` in the context of a function, it performs a conceptual _early exit_ that instructs Python to immediately carry on to the next available iteration without executing the logic's remainder.
 
 Sometimes we would need to break out of the loop without further iterations:
 
