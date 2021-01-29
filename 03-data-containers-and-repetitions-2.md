@@ -231,7 +231,7 @@ import json
 # print all rows as one JSON string
 def print_json(rows):
     json_str = json.dumps(rows, indent=2)
-    print(json_str)
+    return json_str
 
 print_json([row1, row2, row3])
 ```
