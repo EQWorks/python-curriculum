@@ -62,7 +62,7 @@ The above error indicates a violation of the expected type for the `str.join()` 
 row1[1] = str(row1[1])  # index 1 (second item)
 row1[2] = str(row1[2])  # index 2 (third item)
 row1[3] = str(row1[3])  # index 3 (fourth item)
-row1[4] = str(row1[4])  # index 3 (fourth item)
+row1[4] = str(row1[4])  # index 4 (fifth item)
 csv_row1 = ','.join(row1)
 print(csv_row1)
 ```

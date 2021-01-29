@@ -92,7 +92,7 @@ Logically, _"if x is divisible by 2 without remainders, it's even; otherwise (el
 <class 'bool'>
 ```
 
-Within the scope of a function, the logic can be concise by employing what is known as "early exit":
+Within the scope of a function, the logic can be concise by employing what is known as an _early exit_:
 
 ```python
 >>> def is_even(x):
@@ -171,7 +171,7 @@ Conceptually this is known as a <a name="ternary"></a>_ternary_ operation. Unlik
 
 ### Switch Cases
 
-We cannot always state all logical cases with an `if/else` pair or together with an "early exit" using only an `if` and an implied `else` statement.
+We cannot always state all logical cases with an `if/else` pair or together with an _early exit_ using only an `if` and an implied `else` statement.
 
 There are times where we would need to handle intermediate cases using `elif` (else-if). Imagine if we want to implement a function to safeguard the displayed content to a safe range of ages:
 
@@ -237,7 +237,7 @@ The `or` logic operator takes two operands (one on each side) and has a _truth-t
 | Falsy  | or | Truthy | Right  |
 | Falsy  | or | Falsy  | Right  |
 
-If we mix-in the concept of evaluation short-circuiting (similar to "early exit"):
+If we mix-in the concept of evaluation short-circuiting (similar to _early exit_):
 
 | Left   |    | Right  | Output |
 |--------|----|--------|--------|
