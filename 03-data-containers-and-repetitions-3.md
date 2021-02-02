@@ -4,7 +4,7 @@
 
 Similar to pre-made LEGO® pieces, Python offers plenty of built-in [functions](https://docs.python.org/3.8/library/functions.html) and [types](https://docs.python.org/3.8/library/stdtypes.html) for many possible applications.
 
-At times, there are needs to have more flexibility and customizations. Python offers its `class` interface for us to create our own _type_:
+At times, there are needs to have more flexibility and customizations. Python offers its `class` interface for us to create our own _type_, as our fourth abstraction building block:
 
 ```python
 '''norse_type.py'''
@@ -138,7 +138,7 @@ File system is one of the most important forms of I/O (input/output) of a modern
 
 ### With context manager
 
-The `with` statement involves an interesting Python mechanism known as runtime context management, you can read more details about it through its [official documentation](https://docs.python.org/3.8/reference/compound_stmts.html#with). In this particular case, the built-in `open()` function implements such a context manager which eliminates the need of some common tasks such as opening a file and closing it when it is no longer needed (or when an exception is raised).
+The `with` statement involves an interesting Python mechanism known as runtime context management, you can read more details about it through its [official documentation](https://docs.python.org/3.8/reference/compound_stmts.html#with). In this particular case, the built-in `open()` function implements such a context manager which eliminates the need of some common chores such as opening a file and closing it when it is no longer needed (or when an exception is raised).
 
 ### I/O - File system (output)
 
@@ -178,7 +178,7 @@ Of course, the content of the `norse_processed.json` file should be identical as
 
 ### State management
 
-In many occasions, encapsulating data and expose access and operations to them through object properties and methods offer no distinct edge over direct functions. In some programming languages, where object-oriented programming is rigidly enforced, there may be no choice but to organize all logics into various classes.
+In many occasions, encapsulating data and expose access and operations to them through object properties and methods offer no distinct edge over simple functions. In some programming languages, where object-oriented programming is rigidly enforced, there may be no choice but to organize all logics into various classes.
 
 In Python, the choice is flexible, therefore utility functions that are agnostic to the internal state (the `data` property) such as `read_from()` and `write_to()` are scoped outside of the class definition. And we apply functions in the form of methods such as `to_json()` that depend on the object's internal state.
 
@@ -254,4 +254,74 @@ We take the `flatten_norse()` implementation from [the exercise of last section]
     "poi_details.wiki_link": "https://en.wikipedia.org/wiki/Asgard"
   }
 ]
+```
+
+There is no settled convention among Python developers on whether to keep as much inside or outside of classes. One viable approach as demonstrated here is to derive out _stateless_ logic in the form of functions outside of classes, while keeping only _stateful_ (dependent on current property value of `data`) ones inside the class.
+
+## Pandas
+
+If we were to build a set of comprehensive abstractions to perform common data manipulation and analaysis tasks, it would take a while. Thanks to the ever-more-prosperous open source software ecosystem, there are many well built third party libraries that offer more advanced building blocks to alliviate us from reinventing unnecessary wheels.
+
+Among them, [Pandas](https://pandas.pydata.org/) is one of the most popular Python libraries we can use today to handle data:
+
+```python
+'''norse_pandas.py'''
+import pandas as pd
+
+df = pd.read_json('./norse.json')
+print(df)
+```
+
+```shell
+% python norse_pandas.py
+         poi  revenue  ...  unique_visitors                                        poi_details
+0  Yggdrasil   790.20  ...                7                                                NaN
+1   Valhalla  1700.65  ...               10                                                NaN
+2     Asgard  3215.75  ...               71  {'open_days': [1, 2, 3, 4, 5], 'lat': 0.0, 'lo...
+
+[3 rows x 6 columns]
+```
+
+Pandas' primary interface of abstraction is their `DataFrame`, and many utility abstractions are built around that. It does not just stop at file I/O. Let us try some simple statistics with some ["real" data](data/poi_stats.json), through HTTP API as a form of input:
+
+```python
+'''poi_stats.py'''
+import pandas as pd
+import requests
+
+data_url = 'https://raw.githubusercontent.com/EQWorks/python-curriculum/03/main/data/poi_stats.json'
+with requests.get(data_url) as r:
+    data = r.json()
+
+df = pd.DataFrame.from_dict(data)
+print('Means:')
+print(df.mean())
+print('\nMedians:')
+print(df.median())
+print('\nStandard deviations:')
+print(df.std())
+```
+
+```shell
+% python poi_stats.py
+Means:
+visitors     952.081400
+visits      1617.321000
+revenue     5199.971570
+cost        2609.954645
+dtype: float64
+
+Medians:
+visitors     954.000000
+visits      1448.000000
+revenue     3986.244819
+cost        1418.963295
+dtype: float64
+
+Standard deviations:
+visitors     549.615419
+visits      1221.698989
+revenue     4575.798056
+cost        3075.278290
+dtype: float64
 ```
