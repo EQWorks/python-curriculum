@@ -196,7 +196,7 @@ n.to_json('./norse_processed.json)
 
 Of course, the content of the `norse_processed.json` file should be the same as the input `norse.json` file, as we have yet to make any changes.
 
-## State management
+## Classes for state management
 
 On many occasions, encapsulating data and expose access and operations to them through object properties and methods offer no distinct edge over simple functions. In some programming languages, where the object-oriented paradigm is more rigid, there may be no choice but to organize all logics into various classes.
 
