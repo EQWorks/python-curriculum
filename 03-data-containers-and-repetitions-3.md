@@ -278,9 +278,57 @@ We take the `flatten_norse()` implementation from [the exercise of the last sect
 
 There is no settled convention among Python developers on whether to keep as much inside or outside classes. As demonstrated here, one viable approach is to derive out _stateless_ logic in functions outside of classes while keeping only _stateful_ (dependent on the current property value of `data`) ones inside the class.
 
+Let us proceed to add some more useful methods to the class to perform some common statistical analysis, using the [`statistics` module](https://docs.python.org/3.8/library/statistics.html) from the built-in Python library:
+
+```python
+'''norse_type.py'''
+# ...
+import statistics as stats
+
+STATS_KEYS = ['revenue', 'cost', 'visits', 'unique_visitors']
+
+def transmute_stats(data):
+    '''Transmute stats from list of dict(s) as:
+    {
+      'stats_1': [...],
+      'stats_2': [...],
+      ...
+    }
+    '''
+    r = {}
+    for key in STATS_KEYS:
+        r[key] = []
+        for d in data:
+            if s := d.get(key):
+                r[key].append(s)
+
+    return r
+
+class Norse:
+    # ...
+
+    def mean(self, column=''):
+        ts = transmute_stats(self.data)
+        if column:
+            return stats.mean(ts.get(column, []))
+
+        return {k: stats.mean(ts.get(k, [])) for k in STATS_KEYS}
+```
+
+Which can be used as:
+
+```python
+>>> from norse_type import Norse
+>>> n = Norse('./norse.json')
+>>> n.mean('visits')
+109.66666666666667
+>>> n.mean()
+{'revenue': 1902.2, 'cost': 1607.88, 'visits': 109.66666666666667, 'unique_visitors': 29.333333333333332}
+```
+
 ## Pandas
 
-If we were to build a set of abstractions to perform standard data manipulation and analysis tasks, it would take a while. Thanks to the ever-more-prosperous open-source software ecosystem, there are many well built third party libraries that offer more advanced building blocks to alleviate us from reinventing unnecessary wheels.
+If we were to build a comprehensive set of abstractions to perform standard data manipulation and analysis tasks, it would take a while. Thanks to the ever-more-prosperous open-source software ecosystem, there are many well built third party libraries that offer more advanced building blocks to alleviate us from reinventing unnecessary wheels.
 
 Among them, [Pandas](https://pandas.pydata.org/) is one of the most popular Python libraries we can use today to handle data:
 
@@ -368,7 +416,7 @@ df['avg_visits'] = df['visits'] / df['visitors']
 df.to_csv('./poi_stats.csv')
 ```
 
-The Pandas library offers many more tools for tasks such as data grouping and aggregation, reshaping and pivoting, visualizations and various output formats, etc. Over time, it is safe to say that its capability will only increase and improve, as the Python programming language itself, again thanks to their respective and, to a certain extent, the larger, vibrant open-source community. Check out its [documentation](https://pandas.pydata.org/pandas-docs/stable/index.html) for a world of wonders.
+The Pandas library offers many more tools for data grouping and aggregation, reshaping and pivoting, visualizations, various output formats, etc. Over time, it is safe to say that its capability will only increase and improve, as the Python programming language itself, again thanks to their respective and, to a certain extent, the larger, vibrant open-source community. Check out its [documentation](https://pandas.pydata.org/pandas-docs/stable/index.html) for a world of wonders.
 
 ## Exercises
 
