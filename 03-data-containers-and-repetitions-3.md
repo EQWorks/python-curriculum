@@ -84,7 +84,7 @@ print(n.to_json())
 A few observations:
 1. We read a JSON file, load its content into a dictionary through the built-in `json` module, then _instantiate_ (or initialize) the dictionary into a custom `Norse` type object through the "magic" `__init__()` method.
 2. We verify the new instance in variable `n` as `<class 'norse_type.Norse'>`.
-3. We access the instance's `data` property and verify it's indeed the dictionary loaded through in step 1.
+3. We access the instance's `data` property and verify it's indeed a list of dictionaries loaded in step 1.
 4. We invoke the instance's `to_json()` method to output the JSON string derived from its `data` property.
 
 The name "`self`" is merely a convention to indicate that it applies to the type's _instance itself_; thus, it _can_ be named as any valid variable name, as long as it is the _first_ argument of the method definition. This concept is essential to understand to make great use of classes, objects, and the programming paradigm known as _Object-oriented programming_.
@@ -141,7 +141,7 @@ n.to_json('./norse_processed.json')  # output to ./norse_processed.json
 
 Of course, the content of the `norse_processed.json` file should be the same as the input `norse.json` file, as we have yet to make any changes.
 
-## With context manager
+### With context manager
 
 The "`with`" statement involves an interesting Python mechanism known as runtime context management; you can read more details about it on its [official documentation](https://docs.python.org/3.8/reference/compound_stmts.html#with). In this particular case, the object returned by the built-in `open()` function implements such a context manager, eliminating the need for some chores such as closing the underlying file system I/O connectivity when it is no longer needed (or when an exception occurs).
 
@@ -256,19 +256,9 @@ import statistics as stats
 STATS_KEYS = ['revenue', 'cost', 'visits', 'unique_visitors']
 
 def transmute_stats(data):
-    '''Transmute stats from list of dict(s) as:
-    {
-      'revenue': [...],
-      'cost': [...],
-      ...
-    }
-    '''
     r = {}
     for key in STATS_KEYS:
-        r[key] = []
-        for d in data:
-            if s := d.get(key):
-                r[key].append(s)
+        r[key] = [d[key] for d in data if d.get(key)]
 
     return r
 
