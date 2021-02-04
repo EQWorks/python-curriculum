@@ -343,6 +343,15 @@ df['profit'] = df['revenue'] - df['cost']
 df.to_csv('./poi_stats.csv')
 ```
 
+|   | poi                          | address               | city            | province | postalcode | visitors | visits | revenue            | cost               | profit             |
+|---|------------------------------|-----------------------|-----------------|----------|------------|----------|--------|--------------------|--------------------|--------------------|
+| 0 | "Chang, Mccoy and Bond"      | 99480 Joanna Radial   | Robertmouth     | NS       | B3R5Y9     | 498      | 659    | 5342.720445062766  | 1295.4028830718028 | 4047.3175619909634 |
+| 1 | "Rodgers, Sanders and Rojas" | 81096 Morris Trail    | Port Jacob      | SK       | S8G6S6     | 242      | 320    | 1745.2750870121083 | 1671.1420393401427 | 74.13304767196564  |
+| 2 | Ayers-Clark                  | 68282 Silva Cape      | Port Jacobburgh | NB       | E8K2K1     | 1863     | 2468   | 148.48709980505885 | 75.77944071267525  | 72.7076590923836   |
+| 3 | Warren Inc                   | 12053 Jonathan Common | Smithmouth      | ON       | K5C 2V4    | 1756     | 2326   | 10109.082891784037 | 3051.1382829564436 | 7057.944608827594  |
+|||| 4996 more... |
+||
+
 We observe that the Pandas `DataFrame` provides a simple interface by combining the index notion and intuitive arithmetics to calculate a new `profit` column based on each row's revenue and cost. It could be performing an iterative logic for the per-row calculation and assigning the new column in some data structure behind that abstraction. All those intricacies are openly available through its [source code](https://github.com/pandas-dev/pandas/) as a form of opt-in transparency. Though for us, all we have to do is enjoy the magic of elegant abstractions.
 
 Let us apply the same computations from [Exercise Problem 01](03-data-containers-and-repetitions-1.md#exercises):
@@ -355,6 +364,15 @@ df['avg_revenue'] = df['revenue'] / df['visitors']
 df['avg_visits'] = df['visits'] / df['visitors']
 df.to_csv('./poi_stats.csv')
 ```
+
+|   | poi                          | address               | city            | province | postalcode | visitors | visits | revenue            | cost               | profit             | profit_margin        | avg_revenue         | avg_visits         |
+|---|------------------------------|-----------------------|-----------------|----------|------------|----------|--------|--------------------|--------------------|--------------------|----------------------|---------------------|--------------------|
+| 0 | "Chang, Mccoy and Bond"      | 99480 Joanna Radial   | Robertmouth     | NS       | B3R5Y9     | 498      | 659    | 5342.720445062766  | 1295.4028830718028 | 4047.3175619909634 | 0.7575387115249703   | 10.728354307354952  | 1.323293172690763  |
+| 1 | "Rodgers, Sanders and Rojas" | 81096 Morris Trail    | Port Jacob      | SK       | S8G6S6     | 242      | 320    | 1745.2750870121083 | 1671.1420393401427 | 74.13304767196564  | 0.042476425764422385 | 7.211880524843423   | 1.322314049586777  |
+| 2 | Ayers-Clark                  | 68282 Silva Cape      | Port Jacobburgh | NB       | E8K2K1     | 1863     | 2468   | 148.48709980505885 | 75.77944071267525  | 72.7076590923836   | 0.4896564023934589   | 0.07970322050727796 | 1.3247450348899625 |
+| 3 | Warren Inc                   | 12053 Jonathan Common | Smithmouth      | ON       | K5C 2V4    | 1756     | 2326   | 10109.082891784037 | 3051.1382829564436 | 7057.944608827594  | 0.6981785276054866   | 5.756880917872459   | 1.3246013667425969 |
+|||| 4996 more... |
+||
 
 The Pandas library offers many more tools for data grouping and aggregation, reshaping and pivoting, visualizations, various output formats, etc. Over time, its capability may increase and improve, as the Python programming language itself, again thanks to their respective and, to a certain extent, the larger, vibrant open-source community. Check out its [documentation](https://pandas.pydata.org/pandas-docs/stable/index.html) for a world of wonders.
 
