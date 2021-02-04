@@ -89,7 +89,7 @@ A few observations:
 
 The name "`self`" is merely a convention to indicate that it applies to the type's _instance itself_; thus, it _can_ be named as any valid variable name, as long as it is the _first_ argument of the method definition. This concept is essential to understand to make great use of classes, objects, and the programming paradigm known as _Object-oriented programming_.
 
-## I/O - File system
+### I/O - File system
 
 Let us develop some additional capabilities to our `Norse` class, say internalize the file reading so one can instantiate a new `Norse` type object by calling `n = Norse('./data.json')`:
 
@@ -165,7 +165,7 @@ The "`finally`" keyword is an exception control on top of the basic `try/except`
 
 With a context manager, none of the above is necessary for the users to manage.
 
-## Classes or Functions?
+### Classes or Functions?
 
 On many occasions, encapsulating data and expose access and operations to them through object properties and methods offer no distinct edge over simple functions. There is no settled convention of class usages among the Python or, to a certain extent, all applicable programming languages communities. As demonstrated, one viable approach is to derive out generic algorithms (such as `read_from()` and `write_to()`) in functions outside of classes while keeping only _stateful_ ones (dependent on the current property value of `data`, such as `to_json()`) inside.
 

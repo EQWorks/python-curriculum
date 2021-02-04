@@ -15,7 +15,7 @@ _WIP_
 * Part 03 - Data Containers and Repetitions
     * [1/3 - Lists, For Loop, Mutations](03-data-containers-and-repetitions-1.md)
     * [2/3 - Dictionaries, Sets, JSON Format, While Loop, Loop Controls](03-data-containers-and-repetitions-2.md)
-    * [3/3 - Classes (and state management), File I/O, Context Manager, Pandas DataFrame](03-data-containers-and-repetitions-3.md)
+    * [3/3 - Classes, Pandas (DataFrame)](03-data-containers-and-repetitions-3.md)
 * Part 04 - Open-source, decentralization, automation
 
 ## On Exercises
