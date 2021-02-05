@@ -334,7 +334,7 @@ Pandas' primary interface of abstraction is its `DataFrame` class and many utili
 import pandas as pd
 import requests
 
-data_url = 'https://raw.githubusercontent.com/EQWorks/python-curriculum/03/main/data/poi_stats.json'
+data_url = 'https://raw.githubusercontent.com/EQWorks/python-curriculum/main/data/poi_stats.json'
 with requests.get(data_url) as r:
     data = r.json()
 
