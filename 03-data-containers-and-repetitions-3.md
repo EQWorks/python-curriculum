@@ -187,8 +187,8 @@ def flatten_norse(row):
 
     return flat
 
-def flatten_func(data):  # function equiv of flatthen() method
-    for i, row in enumurate(data):
+def flatten_func(data):  # function equiv of flatten() method
+    for i, row in enumerate(data):
         data[i] = flatten_norse(row)
 
 class Norse:
@@ -201,12 +201,12 @@ n = Norse('./norse.json')
 
 n.flatten()
 # or
-flatten_func(n)
+flatten_func(n.data)
 
 n.to_json('./norse_processed.json')
 ```
 
-Objectively, the method `n.flatten()` and the mutating function `flatten_func(n)` would correctly achieve the same result. Though for some, it may be more intuitive to use it through a method as it implies that the mutation operation applies to the object `n` _itself_.
+Objectively, the method `n.flatten()` and the mutating function `flatten_func(n.data)` would correctly achieve the same result. Though for some, it may be more intuitive to use it through a method as it implies that the mutation operation applies to the object `n` _itself_.
 
 ```json
 [
