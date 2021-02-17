@@ -10,13 +10,13 @@ The _open-source software movement_ started in the 80s, initially as the _free s
 
 The immediate values of open-source software are apparent. They are usually free to use. Users can change software behaviors without waiting for the providers to do it for them. For a providing party, open-source brings benefits of open scrutiny to the quality and security measures. It demonstrates their confidence and opinions to attract a fanbase and build up ecosystems. For organizations using open-source technologies, hiring and onboarding become much simpler without expensive training and obtaining certificates from the proprietary counterparts.
 
-In-depth, there are qualities and practices of open-source communities that impact our workplace and society in profound ways.
+In-depth, the open-source community has qualities and practices that impact our workplace and society in profound ways.
 
 ### Transparency by default
 
-While open-source communities and projects present in many shapes and forms, even when they are for-profit, the one prominent trait in common is the transparency of the software source code and its timeline of changes. As a result, this usually leads to other aspects such as the issue/feedback tracking, feature discussions, peer-review, product deployment, etc., to be open to public examination. The transparency allows the software development process to be more socially inclusive, encouraging participants to contribute to the various parts of the development lifecycle.
+While open-source community and projects present in many shapes and forms, even when they are for-profit, the one prominent trait in common is the transparency of the software source code and its timeline of changes. As a result, this usually leads to other aspects such as the issue/feedback tracking, feature discussions, peer-review, product deployment, etc., to be open to public examination. The transparency allows the software development process to be more socially inclusive, encouraging participants to contribute to the various parts of the development lifecycle.
 
-Empowered by transparency, open-source communities often devise pragmatic and objective-focused methodologies, eliminating as many intermediaries and manual processes as possible. Contributors can infer as much as possible from available information before involving others. These methodologies evolve as fast as the open-source software projects themselves, fluidly adapt to the people who make and use the software instead of the rigid models seen from the conventional corporate world, giving such communities a considerable edge to stay agile and competitive. The transparency also generates more data that drives more opportunities to help make data-driven decisions.
+Empowered by transparency, the open-source community often devises pragmatic and objective-focused methodologies, eliminating as many intermediaries and manual processes as possible. Contributors can infer as much as possible from available information before involving others. These methodologies evolve as fast as the open-source software projects themselves, fluidly adapt to the people who make and use the software instead of the rigid models seen from the conventional corporate world, giving such community a considerable edge to stay agile and competitive. The transparency also generates more data that drives more opportunities to help make data-driven decisions.
 
 ### Asynchronous and Decentralized Workforce
 
@@ -48,7 +48,7 @@ However, due to a barrier to converting from a centralized mindset to a decentra
 
 The company started as profitable from day one, refrained from taking external funding until [July 2012](https://www.reuters.com/article/github-fundraising/github-raises-100-mln-from-andreessen-horowitz-idUSL2E8I9AV320120709), and stayed as a flat organization with 234+ employees until [17 July 2014](https://en.wikipedia.org/wiki/Timeline_of_GitHub).
 
-Perhaps the root of their success is a culture that emphasizes [people's happiness instead of money](https://tom.preston-werner.com/2010/10/18/optimize-for-happiness.html). The culture reflects in their ability to [develop quality products](https://github.blog/changelog/) that embrace and encourage the best practices from open-source communities and benefit even proprietary developments. Not surprisingly, they are also a large contributor to various open-source software projects, with an adopted [Open Source (Almost) Everything](https://tom.preston-werner.com/2011/11/22/open-source-everything.html) mindset.
+Perhaps the root of their success is a culture that emphasizes [people's happiness instead of money](https://tom.preston-werner.com/2010/10/18/optimize-for-happiness.html). The culture reflects in their ability to [develop quality products](https://github.blog/changelog/) that embrace and encourage the best practices from the open-source community and benefit even proprietary developments. Not surprisingly, they are also a large contributor to various open-source software projects, with an adopted [Open Source (Almost) Everything](https://tom.preston-werner.com/2011/11/22/open-source-everything.html) mindset.
 
 Such emphasis on people's happiness through their interpretation of open-source practices allows the company to attract top talents worldwide to collaborate on a service platform enjoyed by their users. By 2010 (a little over three years since inception), GitHub has claimed to be the largest host of source code in the world until today.
 
@@ -72,8 +72,18 @@ We encourage the utilization of text-based communication such as shared calendar
 
 And in the event of required synchronous communication, such as meetings, we have been [developing and evolving](https://github.com/EQWorks/common/blob/master/communications/meetings.md) our method to minimize manual processes and make such events less expensive, more valuable, and more scalable.
 
-<!--
 ## Prospects
 
-ML accelerated automation for more elimination of processes and partial or entire job functions
--->
+As a natural progression, more organizations have started taking an open stance toward software and data. The increasingly sophisticated open-source tools and automation that help gather and curate data establish a new baseline that redefines much of the professional landscape. The cost-saving factor from utilizing open-source technologies is also making it cheaper and easier to experiment with ideas formerly impossible without extensive training.
+
+### Redefinition of developers
+
+As open-source programming ecosystems become more sophisticated and more straightforward to adopt, especially with automation's help, professional programmers no longer solely focus on software development implementation and start internalizing other aspects that formerly required dedicated roles. These include (but are not limited to) software architecting, designing, testing, documenting, and [even marketing](https://basecamp.com/handbook/01-basecamp-is-you).
+
+This redefinition gives developers better perspectives and a higher sense of ownership, allowing them to think and act more strategically, which improves the collective pool of wisdom for balanced decision-making.
+
+### Acceleration through Machine Learning
+
+Open-source projects such as [TensorFlow](https://www.tensorflow.org/) and [PyTorch](https://pytorch.org/) offer a set of sophisticated implementation of modern machine-learning algorithms and utilities that accelerate the path from AI model research to production.
+
+There are also AI models that accelerate the elimination of many rudimentary job functions. Such as [comprehending and summarizing lengthy text](https://openai.com/blog/better-language-models/),  [elaborating from seeding phrases](https://app.inferkit.com/demo), or [categorize software changes]((https://medium.com/locus-engineering/road-to-automation-release-notes-d1c49cc97d9)). These technologies can procedurally generate video game stages and contents to offer a unique and challenging experience or learn to [beat]((https://deepmind.com/research/case-studies/alphago-the-story-so-far)) real [players](https://openai.com/projects/five/).
