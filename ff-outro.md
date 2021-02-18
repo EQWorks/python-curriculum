@@ -14,15 +14,18 @@ In-depth, the open-source community has qualities and practices that impact our 
 
 ### Transparency by default
 
-While open-source community and projects present in many shapes and forms, even when they are for-profit, the one prominent trait in common is the transparency of the software source code and its timeline of changes. As a result, this usually leads to other aspects such as the issue/feedback tracking, feature discussions, peer-review, product deployment, etc., to be open to public examination. The transparency allows the software development process to be more socially inclusive, encouraging participants to contribute to the various parts of the development lifecycle.
+While open-source projects present in many shapes and forms, the one prominent trait in common is the transparency of the software source code and its timeline of changes. As a result, this usually leads to other aspects such as the issue/feedback tracking, feature discussions, peer-review, product deployment, etc., to be open to public examination. The transparency allows the software development process to be more socially inclusive, encouraging participants to contribute to the various parts of the development lifecycle.
 
-Empowered by transparency, the open-source community often devises pragmatic and objective-focused methodologies, eliminating as many intermediaries and manual processes as possible. Contributors can infer as much as possible from available information before involving others. These methodologies evolve as fast as the open-source software projects themselves, fluidly adapt to the people who make and use the software instead of the rigid models seen from the conventional corporate world, giving such community a considerable edge to stay agile and competitive. The transparency also generates more data that drives more opportunities to help make data-driven decisions.
+Empowered by transparency, the open-source community often devises pragmatic and objective-focused methodologies, eliminating as many intermediaries and manual processes as possible. Contributors can infer as much as possible from available information before involving others. These methodologies continuously evolve to adapt to the people who make and use the software instead of the conventional corporate world's rigid models. The transparency also generates more data that drives more opportunities to help make data-driven decisions.
 
 ### Asynchronous and Decentralized Workforce
 
-Open-source participants jointly form a workforce that resembles an efficient network system that is asynchronous and decentralized. With an abundance of information, minimal layers of people and processes to get in each other's way, and a growingly sophisticated set of tools and automation, open-source contributors can collaborate efficiently at any time and in any location.
+Open-source participants jointly form a workforce that resembles an efficient network system that is asynchronous and decentralized. With an abundance of information, minimal processes, and a growingly sophisticated set of tools and automation, open-source contributors can collaborate efficiently at any time and in any location.
 
-This asynchronous workforce model defies the conventional way practically unchanged from the First Industrial Revolution. It better embraces the Information Age, especially with the catalyst known as the internet. The model leads to realizations of how elaborate choices of where and when to work not only do not diminish productivity, but by respecting each others' time, life, and work style, we see less burnout and more innovations spark out.
+This asynchronous workforce model defies the conventional way practically unchanged from the First Industrial Revolution. It better embraces the Information Age, especially with the catalyst known as the internet.
+
+![social](https://upload.wikimedia.org/wikipedia/commons/9/9b/Social_Network_Analysis_Visualization.png)
+(Social Network Analysis Visualization, [source](https://www.cairn.info/resume.php?ID_ARTICLE=LCN_103_0037) through [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Social_Network_Analysis_Visualization.png))
 
 The synchronous forms of communication do not entirely vanish. They become more scarce and thus more treasured by each other. When participants resolve most motions asynchronously, the calls and meetings become laser-focused on the unresolved remainders, preserving time and effort. Equally importantly, the in-person times serve a great socialization purpose to remind us that we are still humans.
 
@@ -32,25 +35,31 @@ To sustain an asynchronous and decentralized workforce with a massive amount of 
 
 But it is rare for existing tools and automation to provide a perfect fit for everyone's use-cases. People resort to hacking, or creative workarounds, to bend tools to their will.
 
-The hacking culture is common in making open-source software itself, providing an organic counter-balance to some problems that plague many projects, such as under-documentation, lack of testing, and [leaky abstractions](https://en.wikipedia.org/wiki/Leaky_abstraction).
+The hacking culture also provides an organic counter-balance to some problems that plague many software projects, such as under-documentation, lack of testing, and [leaky abstractions](https://en.wikipedia.org/wiki/Leaky_abstraction).
 
 ## git
 
 Among many tools that support the open-source software ecosystem, `git` is the most popular one that provides efficient ways to distribute and manage source code. Its decentralized nature allows every contributor to fully access the working copy and the entire change history and derivatives.
 
-The collaboration happens in a peer-to-peer fashion. Collaborators branch out the source code to implement new features or issue fixes. Upon concluding the implementation, the contributor requests to merge back to the mainstream working copy of the source code, attract others to review, and offer suggestions to improve. When enough contributors reach a consensus, the implementation gets merged back to the mainstream. During this entire process, automation plays a critical role in simplifying every participant's experience through automated testing and suggestions, so contributors do not waste time on trivial problems such as code-style differences and logical flaws. After the merge, it is common to see automated deployment or release of the software to a designated audience.
+The collaboration happens in a peer-to-peer fashion. Collaborators branch out the source code to implement new features or issue fixes. Upon concluding the implementation, the contributor requests to merge back to the mainstream working copy of the source code, attract others to review, and offer suggestions to improve. When enough contributors reach a consensus, the implementation gets merged back to the mainstream. During this process, automation allows contributors to not waste time on trivial problems such as code-style differences and logical flaws. After the merge, it is common to see automated deployment or release of the software to a designated audience.
 
-When unresolvable disagreements break out, one can _fork_ the project to evolve the software to another trajectory without impacting other collaborators. The practice of forking is why we have a diverse number of Linux distributions.
+![branching](https://user-images.githubusercontent.com/2837532/108411648-e0107300-71f6-11eb-8148-d66dbd4d19d5.png)
+(From [Understanding the GitHub flow](https://guides.github.com/introduction/flow/))
+
+When unresolvable disagreements break out, one can maintain the branch derivative as a permanent _fork_ to evolve the software project to a different trajectory. The practice of forking is why we have a diverse number of Linux distributions.
+
+![linux distros](https://specials-images.forbesimg.com/imageserve/5dc1a7ccca425400079c78c4/960x0.jpg?fit=scale)
+(By Eric Adams through [Forbes](https://www.forbes.com/sites/jasonevangelho/2019/11/05/my-search-for-the-perfect-linux-os-just-ended--with-an-unexpected-surprise/?sh=2798c7045cd6))
 
 ### GitHub
 
-However, due to a barrier to converting from a centralized mindset to a decentralized one from its users, `git` was notoriously convoluted and hard to utilize. Toward the end of 2007, a group of software developers who enjoyed `git` but envisioned better ways to use it started building what's known as GitHub today, making `git` usages a pleasant experience even for people who are not developers. They have been building GitHub using `git` and GitHub itself, a practice known as [dogfooding](https://en.wikipedia.org/wiki/Eating_your_own_dog_food).
+However, due to a barrier to converting from a centralized mindset to a decentralized one from its users, `git` was notoriously convoluted and hard to utilize. Toward the end of 2007, a group of software developers who enjoyed `git` but envisioned better ways to use it started building what's known as GitHub today, making the usage pleasant for more. They have been building GitHub using `git` and GitHub itself, a practice known as [dogfooding](https://en.wikipedia.org/wiki/Eating_your_own_dog_food).
 
 The company started as profitable from day one, refrained from taking external funding until [July 2012](https://www.reuters.com/article/github-fundraising/github-raises-100-mln-from-andreessen-horowitz-idUSL2E8I9AV320120709), and stayed as a flat organization with 234+ employees until [17 July 2014](https://en.wikipedia.org/wiki/Timeline_of_GitHub).
 
 Perhaps the root of their success is a culture that emphasizes [people's happiness instead of money](https://tom.preston-werner.com/2010/10/18/optimize-for-happiness.html). The culture reflects in their ability to [develop quality products](https://github.blog/changelog/) that embrace and encourage the best practices from the open-source community and benefit even proprietary developments. Not surprisingly, they are also a large contributor to various open-source software projects, with an adopted [Open Source (Almost) Everything](https://tom.preston-werner.com/2011/11/22/open-source-everything.html) mindset.
 
-Such emphasis on people's happiness through their interpretation of open-source practices allows the company to attract top talents worldwide to collaborate on a service platform enjoyed by their users. By 2010 (a little over three years since inception), GitHub has claimed to be the largest host of source code in the world until today.
+Such an interpretation of open-source practices allows the company to attract top talents worldwide to collaborate on a service platform enjoyed by their users. By 2010 (a little over three years since inception), GitHub has claimed to be the largest host of source code in the world until today.
 
 ## EQ Works - our adaptation of open-source
 
@@ -60,17 +69,15 @@ As a part of the workspace meta shift, more organizations start to realize the b
 
 ### Round-table wisdom
 
-Instead of on-paper seniority, materialized merits become the only valid argument between project contributors in discussions and debates. We demonstrate cases in a verifiable way, rapidly iterate based on feedback, and make frequent releases with peer-review and automation that capture rudimentary errors through various quality-assurance measures.
+Instead of on-paper seniority, materialized merits become the only valid argument between project contributors in discussions and debates. We demonstrate cases in a verifiable way, rapidly iterate based on feedback, and make frequent releases with peer-review and automation that capture trivial issues.
 
-The practice allows us to eliminate hierarchy and processes to boost productivity and innovation opportunities while maintaining a flat and fluid team. We eradicate conventional constraints to give everyone the freedom to pursue after their passion and the power to develop, test, and deploy their implementations through the available tools and automation without waiting for others.
+The practice allows us to eliminate hierarchy and processes to boost productivity and innovation opportunities while maintaining a flat and fluid team. We minimize constraints to give everyone the freedom to pursue after their interest and the ability to develop, test and deploy their implementations without waiting for others.
 
 ### Respect Time - Work Alone, Together
 
-The transparent and asynchronous model of information distribution allows our collaboration and communication to be in a manner that respects each other's time. With the information availed to us, each team member infers and summarizes on their own time to form most decisions without bothering or getting blocked by others. The abundance of tools and services, combined with a hacking culture, allows us to automate away conventional chores and costly events to direct our time and efforts for more valuable tasks.
+The transparent and asynchronous model of information distribution allows our collaboration and communication to be in a manner that respects each other's time. With the information availed to us, each team member infers and summarizes on their own time to form most decisions without bothering or getting blocked by others.
 
-We encourage the utilization of text-based communication such as shared calendars, to-do lists, group chat, and discussions. This way, we retain information as a raw and searchable form of a knowledge base. With the help of tools and automation built on top of the services we use, we distill the knowledge into well-formed documentation for future reference. Team status and technical updates are automatically organized and shared across, so we can spend our time on unresolved problems instead of waiting for a debriefing from each other.
-
-And in the event of required synchronous communication, such as meetings, we have been [developing and evolving](https://github.com/EQWorks/common/blob/master/communications/meetings.md) our method to minimize manual processes and make such events less expensive, more valuable, and more scalable.
+We encourage team members to learn and utilize text-based communication such as shared calendars, to-do lists, group chat, and discussions. This way, we retain information as a raw and searchable form of a knowledge base. With the help of tools and automation built on top of the services we use, we distill the knowledge into well-formed documentation for future reference. We create bots to collect status and updates from where work happens, then curate and share them across the board regularly. The automation allows us to [focus more time on unresolved problems and minimize synchronous debriefings](https://github.com/EQWorks/common/blob/master/communications/meetings.md).
 
 ## Prospects
 
@@ -78,12 +85,16 @@ As a natural progression, more organizations have started taking an open stance 
 
 ### Redefinition of developers
 
-As open-source programming ecosystems become more sophisticated and more straightforward to adopt, especially with automation's help, professional programmers no longer solely focus on software development implementation and start internalizing other aspects that formerly required dedicated roles. These include (but are not limited to) software architecting, designing, testing, documenting, and [even marketing](https://basecamp.com/handbook/01-basecamp-is-you).
+Professional developers no longer need to solely focus on software development implementation and start internalizing other aspects that formerly required dedicated roles. These include (but are not limited to) software architecting, designing, testing, documenting, and [even marketing](https://basecamp.com/handbook/01-basecamp-is-you). Such change gives developers better perspectives and a higher sense of ownership, allowing them to think and act more strategically.
 
-This redefinition gives developers better perspectives and a higher sense of ownership, allowing them to think and act more strategically, which improves the collective pool of wisdom for balanced decision-making.
+As most programming languages are already in the open-source ecosystem, they are getting ever more accessible. More people can easily acquire and utilize these technologies to automate and simplify their jobs. As a result, it further moves programming toward the skillset spectrum's essential direction for more fields and industries, thus further blurring the line between developers and non-developers.
 
 ### Acceleration through Machine Learning
 
-Open-source projects such as [TensorFlow](https://www.tensorflow.org/) and [PyTorch](https://pytorch.org/) offer a set of sophisticated implementation of modern machine-learning algorithms and utilities that accelerate the path from AI model research to production.
+Open-source projects such as [TensorFlow](https://www.tensorflow.org/) and [PyTorch](https://pytorch.org/) offer a set of sophisticated implementation of modern machine-learning algorithms that accelerate the path from AI model research to production.
 
-There are also AI models that accelerate the elimination of many rudimentary job functions. Such as [comprehending and summarizing lengthy text](https://openai.com/blog/better-language-models/),  [elaborating from seeding phrases](https://app.inferkit.com/demo), or [categorize software changes]((https://medium.com/locus-engineering/road-to-automation-release-notes-d1c49cc97d9)). These technologies can procedurally generate video game stages and contents to offer a unique and challenging experience or learn to [beat]((https://deepmind.com/research/case-studies/alphago-the-story-so-far)) real [players](https://openai.com/projects/five/).
+There are also open-source AI models that accelerate the elimination of many chore-like job functions. Such as [comprehending text and elaborating](https://openai.com/blog/better-language-models/) from seeding phrases or [categorizing software changes]((https://medium.com/locus-engineering/road-to-automation-release-notes-d1c49cc97d9)). Some technologies can procedurally generate video game stages and contents to offer a unique and challenging experience or learn to [beat]((https://github.com/tensorflow/minigo)) real [players](https://openai.com/projects/five/).
+
+## Mais um (next in the series)
+
+From here on, we will gradually adopt some open-source technologies (including machine-learning subjects) in the following series. Our focus will be on practical use-cases and perspectives that hopefully help you connect dots for your path.
