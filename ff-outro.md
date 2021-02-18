@@ -6,15 +6,27 @@ This outro serves as another background introduction for the journey onward.
 
 ## Open-source
 
-The _open-source software movement_ started in the 80s, initially as the _free software movement_. Since then, we have enjoyed a constant improvement in how we work, live, learn, and communicate.
+The _open-source software movement_ started in the 80s, initially as the _free software movement_. Since then, we have enjoyed a constant improvement in working, living, learning, communicating, and more.
+
+![open-swiss-knife](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/121212_2_OpenSwissKnife.png/800px-121212_2_OpenSwissKnife.png)
+
+(By Johannes Spielhagen, through [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:121212_2_OpenSwissKnife.png))
 
 The immediate values of open-source software are apparent. They are usually free to use. Users can change software behaviors without waiting for the providers to do it for them. For a providing party, open-source brings benefits of open scrutiny to the quality and security measures. It demonstrates their confidence and opinions to attract a fanbase and build up ecosystems. For organizations using open-source technologies, hiring and onboarding become much simpler without expensive training and obtaining certificates from the proprietary counterparts.
+
+![profitable](https://user-images.githubusercontent.com/2837532/108421910-d80b0000-7203-11eb-8e0d-bf92446a6283.png)
+
+(From [Wikipedia](https://en.wikipedia.org/wiki/Open-source_model) as of early 2021)
 
 In-depth, the open-source community has qualities and practices that impact our workplace and society in profound ways.
 
 ### Transparency by default
 
 While open-source projects present in many shapes and forms, the one prominent trait in common is the transparency of the software source code and its timeline of changes. As a result, this usually leads to other aspects such as the issue/feedback tracking, feature discussions, peer-review, product deployment, etc., to be open to public examination. The transparency allows the software development process to be more socially inclusive, encouraging participants to contribute to the various parts of the development lifecycle.
+
+![sdlc](https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/SDLC_-_Software_Development_Life_Cycle.jpg/596px-SDLC_-_Software_Development_Life_Cycle.jpg)
+
+(Software Development Life Cycle from [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:SDLC_-_Software_Development_Life_Cycle.jpg))
 
 Empowered by transparency, the open-source community often devises pragmatic and objective-focused methodologies, eliminating as many intermediaries and manual processes as possible. Contributors can infer as much as possible from available information before involving others. These methodologies continuously evolve to adapt to the people who make and use the software instead of the conventional corporate world's rigid models. The transparency also generates more data that drives more opportunities to help make data-driven decisions.
 
@@ -25,11 +37,16 @@ Open-source participants jointly form a workforce that resembles an efficient ne
 This asynchronous workforce model defies the conventional way practically unchanged from the First Industrial Revolution. It better embraces the Information Age, especially with the catalyst known as the internet.
 
 ![social](https://upload.wikimedia.org/wikipedia/commons/9/9b/Social_Network_Analysis_Visualization.png)
+
 (Social Network Analysis Visualization, [source](https://www.cairn.info/resume.php?ID_ARTICLE=LCN_103_0037) through [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Social_Network_Analysis_Visualization.png))
 
 The synchronous forms of communication do not entirely vanish. They become more scarce and thus more treasured by each other. When participants resolve most motions asynchronously, the calls and meetings become laser-focused on the unresolved remainders, preserving time and effort. Equally importantly, the in-person times serve a great socialization purpose to remind us that we are still humans.
 
 ### Automation and Hacking
+
+![automation](https://1.cms.s81c.com/sites/default/files/2018-10-24/automation_OG_1200x630.png)
+
+(By [IBM](https://www.ibm.com/products/robotic-process-automation))
 
 To sustain an asynchronous and decentralized workforce with a massive amount of information exposed through transparency, open-source participants frequently make and improve automation to optimize or abstract away processes. This mindset drives people to continually lookout for new ways to adapt and improve their workflow.
 
@@ -44,11 +61,13 @@ Among many tools that support the open-source software ecosystem, `git` is the m
 The collaboration happens in a peer-to-peer fashion. Collaborators branch out the source code to implement new features or issue fixes. Upon concluding the implementation, the contributor requests to merge back to the mainstream working copy of the source code, attract others to review, and offer suggestions to improve. When enough contributors reach a consensus, the implementation gets merged back to the mainstream. During this process, automation allows contributors to not waste time on trivial problems such as code-style differences and logical flaws. After the merge, it is common to see automated deployment or release of the software to a designated audience.
 
 ![branching](https://user-images.githubusercontent.com/2837532/108411648-e0107300-71f6-11eb-8148-d66dbd4d19d5.png)
+
 (From [Understanding the GitHub flow](https://guides.github.com/introduction/flow/))
 
 When unresolvable disagreements break out, one can maintain the branch derivative as a permanent _fork_ to evolve the software project to a different trajectory. The practice of forking is why we have a diverse number of Linux distributions.
 
 ![linux distros](https://specials-images.forbesimg.com/imageserve/5dc1a7ccca425400079c78c4/960x0.jpg?fit=scale)
+
 (By Eric Adams through [Forbes](https://www.forbes.com/sites/jasonevangelho/2019/11/05/my-search-for-the-perfect-linux-os-just-ended--with-an-unexpected-surprise/?sh=2798c7045cd6))
 
 ### GitHub
@@ -77,13 +96,15 @@ The practice allows us to eliminate hierarchy and processes to boost productivit
 
 The transparent and asynchronous model of information distribution allows our collaboration and communication to be in a manner that respects each other's time. With the information availed to us, each team member infers and summarizes on their own time to form most decisions without bothering or getting blocked by others.
 
-We encourage team members to learn and utilize text-based communication such as shared calendars, to-do lists, group chat, and discussions. This way, we retain information as a raw and searchable form of a knowledge base. With the help of tools and automation built on top of the services we use, we distill the knowledge into well-formed documentation for future reference. We create bots to collect status and updates from where work happens, then curate and share them across the board regularly. The automation allows us to [focus more time on unresolved problems and minimize synchronous debriefings](https://github.com/EQWorks/common/blob/master/communications/meetings.md).
+We encourage team members to learn and transparently utilize shared calendars, to-do lists, group chat, etc. This way, we retain information as a raw and searchable form of a knowledge base. With the help of tools and automation built on top of the services we use, we distill the knowledge into well-formed documentation for future reference. We create bots to collect status and updates from where work happens, then curate and share them across the board regularly. The automation allows us to [focus more time on unresolved problems and minimize synchronous debriefings](https://github.com/EQWorks/common/blob/master/communications/meetings.md).
 
 ## Prospects
 
 As a natural progression, more organizations have started taking an open stance toward software and data. The increasingly sophisticated open-source tools and automation that help gather and curate data establish a new baseline that redefines much of the professional landscape. The cost-saving factor from utilizing open-source technologies is also making it cheaper and easier to experiment with ideas formerly impossible without extensive training.
 
 ### Redefinition of developers
+
+![venn](https://user-images.githubusercontent.com/2837532/108427203-d0028e80-720a-11eb-889c-0cac4394a726.png)
 
 Professional developers no longer need to solely focus on software development implementation and start internalizing other aspects that formerly required dedicated roles. These include (but are not limited to) software architecting, designing, testing, documenting, and [even marketing](https://basecamp.com/handbook/01-basecamp-is-you). Such change gives developers better perspectives and a higher sense of ownership, allowing them to think and act more strategically.
 
@@ -95,6 +116,6 @@ Open-source projects such as [TensorFlow](https://www.tensorflow.org/) and [PyTo
 
 There are also open-source AI models that accelerate the elimination of many chore-like job functions. Such as [comprehending text and elaborating](https://openai.com/blog/better-language-models/) from seeding phrases or [categorizing software changes]((https://medium.com/locus-engineering/road-to-automation-release-notes-d1c49cc97d9)). Some technologies can procedurally generate video game stages and contents to offer a unique and challenging experience or learn to [beat]((https://github.com/tensorflow/minigo)) real [players](https://openai.com/projects/five/).
 
-## Mais um (next in the series)
+## What's next?
 
 From here on, we will gradually adopt some open-source technologies (including machine-learning subjects) in the following series. Our focus will be on practical use-cases and perspectives that hopefully help you connect dots for your path.
