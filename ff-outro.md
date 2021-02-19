@@ -12,7 +12,7 @@ The _open-source software movement_ started in the 80s, initially as the _free s
 
 (By Johannes Spielhagen, through [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:121212_2_OpenSwissKnife.png))
 
-The immediate values of open-source software are apparent. They are usually free to use. Users can change software behaviors without waiting for the providers to do it for them. For a providing party, open-source brings benefits of open scrutiny to the quality and security measures. It demonstrates their confidence and opinions to attract a fanbase and build up ecosystems. For organizations using open-source technologies, hiring and onboarding become much simpler without expensive training and obtaining certificates from the proprietary counterparts.
+The immediate values of open-source software are apparent. They are usually free to use. Users can change software behaviors without waiting for the providers to do it for them. For the provider, open-source allows better quality and security through public scrutiny. It shows their confidence and opinions to attract a fanbase and create an ecosystem. For organizations using open-source technologies, hiring and onboarding become much simpler without expensive training and obtaining certificates from the proprietary counterparts.
 
 ![profitable](https://user-images.githubusercontent.com/2837532/108421910-d80b0000-7203-11eb-8e0d-bf92446a6283.png)
 
@@ -22,7 +22,7 @@ In-depth, the open-source community has qualities and practices that impact our 
 
 ### Transparency by default
 
-While open-source projects present in many shapes and forms, the one prominent trait in common is the transparency of the software source code and its timeline of changes. As a result, this usually leads to other aspects such as the issue/feedback tracking, feature discussions, peer-review, product deployment, etc., to be open to public examination. The transparency allows the software development process to be more socially inclusive, encouraging participants to contribute to the various parts of the development lifecycle.
+While open-source projects come in all shapes and sizes, they all have in common the transparency of code and its timeline of changes. As a result, other aspects are out in the open such as issue tracking, feature discussions, peer-review, and product deployment. This transparency makes the software development process more socially inclusive by encouraging participants to contribute to various parts of the process.
 
 ![sdlc](https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/SDLC_-_Software_Development_Life_Cycle.jpg/596px-SDLC_-_Software_Development_Life_Cycle.jpg)
 
@@ -32,7 +32,7 @@ Empowered by transparency, the open-source community often devises pragmatic and
 
 ### Asynchronous and Decentralized Workforce
 
-Open-source participants jointly form a workforce that resembles an efficient network system that is asynchronous and decentralized. With an abundance of information, minimal processes, and a growingly sophisticated set of tools and automation, open-source contributors can collaborate efficiently at any time and in any location.
+Open-source contributors form a workforce that is asynchronous and decentralized. With an abundance of information, minimal processes, and a growingly sophisticated set of tools and automation, open-source contributors can collaborate efficiently at any time and in any location.
 
 This asynchronous workforce model defies the conventional way practically unchanged from the First Industrial Revolution. It better embraces the Information Age, especially with the catalyst known as the internet.
 
@@ -40,7 +40,7 @@ This asynchronous workforce model defies the conventional way practically unchan
 
 (Social Network Analysis Visualization, [source](https://www.cairn.info/resume.php?ID_ARTICLE=LCN_103_0037) through [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Social_Network_Analysis_Visualization.png))
 
-The synchronous forms of communication do not entirely vanish. They become more scarce and thus more treasured by each other. When participants resolve most motions asynchronously, the calls and meetings become laser-focused on the unresolved remainders, preserving time and effort. Equally importantly, the in-person times serve a great socialization purpose to remind us that we are still humans.
+The synchronous forms of communication do not entirely vanish. They become more scarce and thus more treasured by each other. When most issues and discussions happen asynchronously, the calls and meetings can become laser-focused on what's unresolved, preserving time and effort. Equally importantly, the in-person times serve a great socialization purpose to remind us that we are still humans.
 
 ### Automation and Hacking
 
@@ -48,7 +48,7 @@ The synchronous forms of communication do not entirely vanish. They become more 
 
 (By [IBM](https://www.ibm.com/products/robotic-process-automation))
 
-To sustain an asynchronous and decentralized workforce with a massive amount of information exposed through transparency, open-source participants frequently make and improve automation to optimize or abstract away processes. This mindset drives people to continually lookout for new ways to adapt and improve their workflow.
+To sustain an asynchronous and decentralized workforce with massive amounts of information open to the public, open-source participants frequently make and improve automation to optimize or abstract away processes. This mindset drives people to continually lookout for new ways to adapt and improve their workflow.
 
 But it is rare for existing tools and automation to provide a perfect fit for everyone's use-cases. People resort to hacking, or creative workarounds, to bend tools to their will.
 
@@ -56,15 +56,15 @@ The hacking culture also provides an organic counter-balance to some problems th
 
 ## git
 
-Among many tools that support the open-source software ecosystem, `git` is the most popular one that provides efficient ways to distribute and manage source code. Its decentralized nature allows every contributor to fully access the working copy and the entire change history and derivatives.
+Among many tools that support the open-source software ecosystem, `git` is the most popular one that provides efficient ways to distribute and manage source code. Its decentralized nature allows every contributor to access the entire working copy and change history.
 
-The collaboration happens in a peer-to-peer fashion. Collaborators branch out the source code to implement new features or issue fixes. Upon concluding the implementation, the contributor requests to merge back to the mainstream working copy of the source code, attract others to review, and offer suggestions to improve. When enough contributors reach a consensus, the implementation gets merged back to the mainstream. During this process, automation allows contributors to not waste time on trivial problems such as code-style differences and logical flaws. After the merge, it is common to see automated deployment or release of the software to a designated audience.
+The collaboration happens in a peer-to-peer fashion. Collaborators branch out the source code to implement new features or issue fixes. Once satisfied with the implementation, the contributor sends a request to add their changes to the mainstream working copy and get others to review and offer suggestions - similar to Google Docs in the suggesting mode. When enough contributors reach a consensus, the implementation gets merged back to the mainstream. During this process, automation allows contributors to not waste time on trivial problems such as code-style differences and logical flaws. After the merge, it is common to see automated deployment or release of the software to a designated audience.
 
 ![branching](https://user-images.githubusercontent.com/2837532/108411648-e0107300-71f6-11eb-8148-d66dbd4d19d5.png)
 
 (From [Understanding the GitHub flow](https://guides.github.com/introduction/flow/))
 
-When unresolvable disagreements break out, one can maintain the branch derivative as a permanent _fork_ to evolve the software project to a different trajectory. The practice of forking is why we have a diverse number of Linux distributions.
+When unresolvable disagreements break out, one can maintain a branch as a permanent _fork_ to evolve the project to a different trajectory. The practice of forking is why we have a diverse number of Linux distributions.
 
 ![linux distros](https://specials-images.forbesimg.com/imageserve/5dc1a7ccca425400079c78c4/960x0.jpg?fit=scale)
 
@@ -82,7 +82,7 @@ Such an interpretation of open-source practices allows the company to attract to
 
 ## EQ Works - our adaptation of open-source
 
-A key idea behind the open-source movement is to leverage their learnings to make information and curation more transparent and efficient. This social movement coincides with the phenomenon of the internet-driven information explosion and the increasing realization of how closed platforms could [unethically profit from manipulating the information flow and shape](https://en.wikipedia.org/wiki/Facebook%E2%80%93Cambridge_Analytica_data_scandal).
+A key idea behind the open-source movement is to leverage their learnings to make information and curation more transparent and efficient. This social movement coincides with increasing amounts of information online and a growing realization of how closed platforms could [unethically profit from manipulating the information flow and shape](https://en.wikipedia.org/wiki/Facebook%E2%80%93Cambridge_Analytica_data_scandal).
 
 As a part of the workspace meta shift, more organizations start to realize the benefits of open-source software and their community practices. Since around the beginning of 2014, our dev team has started to build products using open-source technologies and evolve our culture by adapting the open-source ways.
 
@@ -90,7 +90,7 @@ As a part of the workspace meta shift, more organizations start to realize the b
 
 Instead of on-paper seniority, materialized merits become the only valid argument between project contributors in discussions and debates. We demonstrate cases in a verifiable way, rapidly iterate based on feedback, and make frequent releases with peer-review and automation that capture trivial issues.
 
-The practice allows us to eliminate hierarchy and processes to boost productivity and innovation opportunities while maintaining a flat and fluid team. We minimize constraints to give everyone the freedom to pursue after their interest and the ability to develop, test and deploy their implementations without waiting for others.
+The practice allows us to eliminate hierarchy and processes to enable productivity and innovation through a flat and fluid team. We minimize constraints to give everyone the freedom to pursue after their interest and the ability to develop, test and deploy their implementations without waiting for others.
 
 ### Respect Time - Work Alone, Together
 
