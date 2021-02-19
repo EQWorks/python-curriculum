@@ -114,7 +114,7 @@ As most programming languages are already in the open-source ecosystem, they are
 
 Open-source projects such as [TensorFlow](https://www.tensorflow.org/) and [PyTorch](https://pytorch.org/) offer a set of sophisticated implementation of modern machine-learning algorithms that accelerate the path from AI model research to production.
 
-There are also open-source AI models that accelerate the elimination of many chore-like job functions. Such as [comprehending text and elaborating](https://openai.com/blog/better-language-models/) from seeding phrases or [categorizing software changes]((https://medium.com/locus-engineering/road-to-automation-release-notes-d1c49cc97d9)). Some technologies can procedurally generate video game stages and contents to offer a unique and challenging experience or learn to [beat]((https://github.com/tensorflow/minigo)) real [players](https://openai.com/projects/five/).
+There are also open-source AI models that accelerate the elimination of many chore-like job functions. Such as [comprehending text and elaborating](https://openai.com/blog/better-language-models/) from seeding phrases or [categorizing software changes](https://medium.com/locus-engineering/road-to-automation-release-notes-d1c49cc97d9). Some technologies can procedurally generate video game stages and contents to offer a unique and challenging experience or learn to [beat](https://github.com/tensorflow/minigo) real [players](https://openai.com/projects/five/).
 
 ## What's next?
 
