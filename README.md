@@ -16,11 +16,11 @@ _WIP_
     * [1/3 - Lists, For Loop, Mutations](03-data-containers-and-repetitions-1.md)
     * [2/3 - Dictionaries, Sets, JSON Format, While Loop, Loop Controls](03-data-containers-and-repetitions-2.md)
     * [3/3 - Classes, Pandas (DataFrame)](03-data-containers-and-repetitions-3.md)
-* Part 04 - Open-source, decentralization, automation
+* [Part 04 - Open-source, its Impact, and Future Prospects](ff-outro.md)
 
 ## On Exercises
 
-This series does not aim to cover _every_ aspect that is needed to solve any of the exercise problems provided. The programming language and all the technologies that lead to it are still evolving rapidly.
+This series does not aim to cover _every_ aspect needed to solve any of the exercise problems provided. The programming language and all the technologies that lead to it are still evolving rapidly.
 
 Instead, what each part covers aims to be just right to whet your appetite and let you know enough to ask the right questions to come to your solutions.
 
@@ -30,4 +30,4 @@ Instead, what each part covers aims to be just right to whet your appetite and l
 * Consult the official [Python documentation](https://docs.python.org/3.8/).
 * Collaborate with others.
 * Share what you have tried for your problems.
-* Share what you have asked for getting your answers.
+* Share what you have asked for to get your answers.
