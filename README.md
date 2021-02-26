@@ -4,19 +4,25 @@ _WIP_
 
 ## In the Series
 
-* [Part 00 - Background](00-background.md)
+### Basics
+
+* [Part 00 - Background](basics/00-background.md)
 * Part 01 - Immediate Applications
-    * [1/2 - Arithmetics, Text Processing](01-immediate-applications-1.md)
-    * [2/2 - Text Processing (continued), Type Casting, First Reusability - Variables and Functions](01-immediate-applications-2.md)
+    * [1/2 - Arithmetics, Text Processing](basics/01-immediate-applications-1.md)
+    * [2/2 - Text Processing (continued), Type Casting, First Reusability - Variables and Functions](basics/01-immediate-applications-2.md)
 * Part 02 - Logic Controls
-    * [1/2 - Conditions, Boolean Operations](02-logic-controls-1.md)
-    * [2/2 - Error Controls and Controlled Errors](02-logic-controls-2.md)
-    * [extra - Bitwise Operations](02-logic-controls-extra.md)
+    * [1/2 - Conditions, Boolean Operations](basics/02-logic-controls-1.md)
+    * [2/2 - Error Controls and Controlled Errors](basics/02-logic-controls-2.md)
+    * [extra - Bitwise Operations](basics/02-logic-controls-extra.md)
 * Part 03 - Data Containers and Repetitions
-    * [1/3 - Lists, For Loop, Mutations](03-data-containers-and-repetitions-1.md)
-    * [2/3 - Dictionaries, Sets, JSON Format, While Loop, Loop Controls](03-data-containers-and-repetitions-2.md)
-    * [3/3 - Classes, Pandas (DataFrame)](03-data-containers-and-repetitions-3.md)
-* [Part 04 - Open-source, its Impact, and Future Prospects](ff-outro.md)
+    * [1/3 - Lists, For Loop, Mutations](basics/03-data-containers-and-repetitions-1.md)
+    * [2/3 - Dictionaries, Sets, JSON Format, While Loop, Loop Controls](basics/03-data-containers-and-repetitions-2.md)
+    * [3/3 - Classes, Pandas (DataFrame)](basics/03-data-containers-and-repetitions-3.md)
+* [Part FF - Open-source, its Impact, and Future Prospects](basics/ff-outro.md)
+
+### Data analysis
+
+* [Part 04 - Aggregation and Visualization](data-analysis/04-aggregation-and-visualization.ipynb)
 
 ## On Exercises
 
