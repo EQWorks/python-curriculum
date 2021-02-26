@@ -22,7 +22,7 @@ _WIP_
 
 ### Data analysis
 
-* [Part 04 - Jupyter Notebook ft. Pandas and Seaborn](data-analysis/04-jupyter-notebook.ipynb)
+* [Part 04 - Aggregation and Visualization](data-analysis/04-aggregation-and-visualization.ipynb)
 
 ## On Exercises
 
