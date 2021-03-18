@@ -25,6 +25,7 @@ _WIP_
 * [Part 04 - Aggregation and Visualization](data-analysis/04-aggregation-and-visualization.ipynb) ([excercise](04-exercise-problem.ipynb))
 * [Part 05 - Work with internet resources](https://nbviewer.jupyter.org/github/EQWorks/python-curriculum/blob/main/data-analysis/05-work-with-internet-resources/notebook.ipynb) ([source](data-analysis/05-work-with-internet-resources/notebook.ipynb))
 * [Part 06 - Meta-Automation](data-analysis/06-meta-automation/notebook.ipynb)
+* [Part 07 - Interactive visualizations](data-analysis/07-interactive-visualizations.ipynb)
 
 ## On Exercises
 
