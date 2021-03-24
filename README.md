@@ -26,6 +26,7 @@ _WIP_
 * [Part 05 - Work with internet resources](https://nbviewer.jupyter.org/github/EQWorks/python-curriculum/blob/main/data-analysis/05-work-with-internet-resources/notebook.ipynb) ([source](data-analysis/05-work-with-internet-resources/notebook.ipynb))
 * [Part 06 - Meta-Automation](data-analysis/06-meta-automation/notebook.ipynb)
 * [Part 07 - Interactive visualizations](data-analysis/07-interactive-visualizations.ipynb)
+* [Part 08 - Workspace automation](data-analysis/08-workspace-automation.ipynb)
 
 ## On Exercises
 
