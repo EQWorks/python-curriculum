@@ -27,6 +27,7 @@ _WIP_
 * [Part 06 - Meta-Automation](data-analysis/06-meta-automation/notebook.ipynb)
 * [Part 07 - Interactive visualizations](data-analysis/07-interactive-visualizations.ipynb)
 * [Part 08 - Workspace automation](data-analysis/08-workspace-automation.ipynb)
+* [Part 09 - Set operations](data-analysis/09-set-operations.ipynb)
 
 ## On Exercises
 
