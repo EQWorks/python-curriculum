@@ -29,6 +29,10 @@ _WIP_
 * [Part 08 - Workspace automation](data-analysis/08-workspace-automation.ipynb)
 * [Part 09 - Set operations](data-analysis/09-set-operations.ipynb)
 
+### Other topics
+
+* [Collaboration through Git](other-topics/git.md)
+
 ## On Exercises
 
 This series does not aim to cover _every_ aspect needed to solve any of the exercise problems provided. The programming language and all the technologies that lead to it are still evolving rapidly.
