@@ -28,6 +28,7 @@ _WIP_
 * [Part 07 - Interactive visualizations](data-analysis/07-interactive-visualizations.ipynb)
 * [Part 08 - Workspace automation](data-analysis/08-workspace-automation.ipynb)
 * [Part 09 - Set operations](data-analysis/09-set-operations.ipynb)
+* [Part 10 - Bridging Web UI into Notebook](data-analysis/10-bridging-web-ui-to-notebook.ipynb)
 
 ### Other topics
 
