@@ -30,6 +30,7 @@ _WIP_
 * [Part 09 - Set operations](data-analysis/09-set-operations.ipynb)
 * [Part 10 - Bridging Web UI into Notebook](data-analysis/10-bridging-web-ui-to-notebook.ipynb)
 * [Part 11 - Work with SQL](data-analysis/11-work-with-sql.ipynb)
+* [Part 12 - Generate data](data-analysis/12-generate-data.ipynb)
 
 ### Other topics
 
