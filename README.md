@@ -31,6 +31,8 @@ _WIP_
 * [Part 10 - Bridging Web UI into Notebook](data-analysis/10-bridging-web-ui-to-notebook.ipynb)
 * [Part 11 - Work with SQL](data-analysis/11-work-with-sql.ipynb)
 * [Part 12 - Generate data](data-analysis/12-generate-data.ipynb)
+* [Part 13 - The Power of Parallel Processing](data-analysis/13-data-processing.ipynb)
+
 
 ### Other topics
 
