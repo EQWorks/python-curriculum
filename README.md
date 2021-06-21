@@ -32,6 +32,7 @@ _WIP_
 * [Part 11 - Work with SQL](data-analysis/11-work-with-sql.ipynb)
 * [Part 12 - Generate data](data-analysis/12-generate-data.ipynb)
 * [Part 13 - The Power of Parallel Processing](data-analysis/13-data-processing.ipynb)
+* [Part 14 - Distributed Computation](data-analysis/14-distributed-computation.ipynb)
 
 
 ### Other topics
