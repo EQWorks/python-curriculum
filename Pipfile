@@ -16,11 +16,12 @@ ipywidgets = "*"
 faker = "*"
 pyspark = "*"
 aiohttp = "*"
-rq = "*"
 scrapy = "*"
 beautifulsoup4 = "*"
 gensim = "*"
 python-levenshtein = "*"
+celery = {extras = ["redis"], version = "*"}
+tqdm = "*"
 
 [dev-packages]
 
