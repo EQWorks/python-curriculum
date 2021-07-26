@@ -1,3 +1,5 @@
+import json
+
 from celery import Celery
 import requests
 from bs4 import BeautifulSoup
@@ -16,9 +18,13 @@ def add(a, b):
 
 
 @queue.task
-def fetch_website_task(url):
-    r = requests.get(url)
-    return url, r.text
+def fetch_website_task(domain, response_url):
+    r = requests.get(f'https://{domain}')
+    return {
+        'domain': domain,
+        'raw': r.text,
+        'response_url': response_url,
+    }
 
 
 def bbc(tag):
@@ -47,9 +53,30 @@ filter_rules = {
 
 
 @queue.task
-def extract_titles(url, raw):
+def extract_titles(data):
+    raw = data.get('raw')
+    domain = data.get('domain')
     soup = BeautifulSoup(raw, 'html.parser')
-    return url, set([
-        tag.text.strip()
-        for tag in soup.find_all(filter_rules[url])
-    ])
+
+    return {
+        'titles': [
+            {'text': tag.text.strip(), 'link': tag['href'] or tag.parent['href']}
+            for tag in soup.find_all(filter_rules[domain])
+        ],
+        **data,
+    }
+
+
+@queue.task
+def post_slack(data):
+    response_url = data.get('response_url')
+    titles = data.get('titles')
+    if not response_url or not titles:
+        return
+
+    titles = json.dumps(titles, indent=2)
+    requests.post(
+        response_url,
+        json={'text': f'```{titles}```'},
+    )
+    return
