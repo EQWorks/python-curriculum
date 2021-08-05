@@ -21,12 +21,11 @@ def add(a, b):
 
 
 @queue.task
-def fetch_website_task(domain, response_url):
+def fetch_website_task(domain):
     r = requests.get(f'https://{domain}')
     return {
         'domain': domain,
         'raw': r.text,
-        'response_url': response_url,
     }
 
 
@@ -65,7 +64,7 @@ def extract_titles(data):
     for tag in soup.find_all(filter_rules[domain]):
         title = {
             'text': tag.text.strip(),
-            'link': tag['href'] or tag.parent['href'],
+            'link': tag.get('href') or tag.parent.get('href', ''),
         }
         if not title['link'].startswith('http'):
             title['link'] = urljoin(f'https://{domain}', title['link'])
@@ -76,8 +75,7 @@ def extract_titles(data):
 
 
 @queue.task
-def post_slack(data):
-    response_url = data.get('response_url')
+def post_slack(data, response_url):
     titles = data.get('titles')
     if not response_url or not titles:
         return
