@@ -20,20 +20,20 @@ _WIP_
     * [3/3 - Classes, Pandas (DataFrame)](basics/03-data-containers-and-repetitions-3.md)
 * [Part FF - Open-source, its Impact, and Future Prospects](basics/ff-outro.md)
 
-### Data analysis
+### Applications
 
-* [Part 04 - Aggregation and Visualization](data-analysis/04-aggregation-and-visualization.ipynb) ([excercise](04-exercise-problem.ipynb))
-* [Part 05 - Work with internet resources](https://nbviewer.jupyter.org/github/EQWorks/python-curriculum/blob/main/data-analysis/05-work-with-internet-resources/notebook.ipynb) ([source](data-analysis/05-work-with-internet-resources/notebook.ipynb))
-* [Part 06 - Meta-Automation](data-analysis/06-meta-automation/notebook.ipynb)
-* [Part 07 - Interactive visualizations](data-analysis/07-interactive-visualizations.ipynb)
-* [Part 08 - Workspace automation](data-analysis/08-workspace-automation.ipynb)
-* [Part 09 - Set operations](data-analysis/09-set-operations.ipynb)
-* [Part 10 - Bridging Web UI into Notebook](data-analysis/10-bridging-web-ui-to-notebook.ipynb)
-* [Part 11 - Work with SQL](data-analysis/11-work-with-sql.ipynb)
-* [Part 12 - Generate data](data-analysis/12-generate-data.ipynb)
-* [Part 13 - The Power of Parallel Processing](data-analysis/13-data-processing.ipynb)
-* [Part 14 - Distributed Computation](data-analysis/14-distributed-computation/notebook.ipynb)
-* [Part 15 - Task Queue](data-analysis/15-task-queue/notebook.ipynb)
+* [Part 04 - Aggregation and Visualization](applications/04-aggregation-and-visualization.ipynb)
+* [Part 05 - Work with internet resources](applications/05-work-with-internet-resources/notebook.ipynb))
+* [Part 06 - Meta-Automation](applications/06-meta-automation/notebook.ipynb)
+* [Part 07 - Interactive visualizations](applications/07-interactive-visualizations.ipynb)
+* [Part 08 - Workspace automation](applications/08-workspace-automation.ipynb)
+* [Part 09 - Set operations](applications/09-set-operations.ipynb)
+* [Part 10 - Bridging Web UI into Notebook](applications/10-bridging-web-ui-to-notebook.ipynb)
+* [Part 11 - Work with SQL](applications/11-work-with-sql.ipynb)
+* [Part 12 - Generate data](applications/12-generate-data.ipynb)
+* [Part 13 - The Power of Parallel Processing](applications/13-data-processing.ipynb)
+* [Part 14 - Distributed Computation](applications/14-distributed-computation/notebook.ipynb)
+* [Part 15 - Task Queue](applications/15-task-queue/notebook.ipynb)
 
 ### Other topics
 
