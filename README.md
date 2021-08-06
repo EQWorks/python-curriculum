@@ -23,7 +23,7 @@ _WIP_
 ### Applications
 
 * [Part 04 - Aggregation and Visualization](applications/04-aggregation-and-visualization.ipynb)
-* [Part 05 - Work with internet resources](applications/05-work-with-internet-resources/notebook.ipynb))
+* [Part 05 - Work with internet resources](applications/05-work-with-internet-resources/notebook.ipynb)
 * [Part 06 - Meta-Automation](applications/06-meta-automation/notebook.ipynb)
 * [Part 07 - Interactive visualizations](applications/07-interactive-visualizations.ipynb)
 * [Part 08 - Workspace automation](applications/08-workspace-automation.ipynb)
