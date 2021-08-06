@@ -4,8 +4,6 @@ from urllib.parse import urljoin
 from celery import Celery
 import requests
 from bs4 import BeautifulSoup
-import fasttext
-from gensim.utils import simple_preprocess
 
 
 queue = Celery(
@@ -86,24 +84,3 @@ def post_slack(data, response_url):
         json={'text': f'```{titles}```'},
     )
     return
-
-
-
-model = fasttext.load_model('./opinion.bin')
-
-
-@queue.task
-def classify(data):
-    # enrich with classified label/score
-    titles = data.get('titles')
-    if not titles:
-        return data
-
-    for title in titles:
-        text = title.get('text')
-        text = ' '.join(simple_preprocess(text))
-        label, score = model.predict(text)
-        title['label'] = label[0].replace('__label__', '')
-        title['score'] = score[0]
-
-    return data
