@@ -1,5 +1,6 @@
 .DS_Store
 *.db
+secrets.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

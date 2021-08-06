@@ -1,0 +1,30 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+pandas = "*"
+requests = "*"
+jupyterlab = "*"
+seaborn = "*"
+folium = "*"
+locussdk = {ref = "master", git = "ssh://git@github.com/EQWorks/locussdk.git"}
+fasttext = "*"
+plotly = "*"
+ipywidgets = "*"
+faker = "*"
+pyspark = "*"
+aiohttp = "*"
+scrapy = "*"
+beautifulsoup4 = "*"
+gensim = "*"
+python-levenshtein = "*"
+celery = {extras = ["redis"], version = "*"}
+tqdm = "*"
+flask = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"
