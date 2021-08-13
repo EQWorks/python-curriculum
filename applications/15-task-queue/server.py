@@ -7,6 +7,8 @@ from extract_tasks import (
     fetch_website_task,
     extract_titles,
     post_slack,
+    classify,
+    format_slack,
 )
 
 
@@ -20,6 +22,11 @@ def pipe(domain):
 
 def pipe_v2(domain, response_url):
     chain = fetch_website_task.s(domain) | extract_titles.s() | post_slack.s(response_url)
+    return chain()
+
+
+def pipe_v3(domain, response_url):
+    chain = fetch_website_task.s(domain) | extract_titles.s() | classify.s() | format_slack.s() | post_slack.s(response_url)
     return chain()
 
 
@@ -42,7 +49,7 @@ def get_news():
     if not response_url:
         pipe(domain)
     else:
-        pipe_v2(domain, response_url)
+        pipe_v3(domain, response_url)
 
     return jsonify({
         'text': f'parsing {domain} headlines',

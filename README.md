@@ -33,7 +33,7 @@ _WIP_
 * [Part 12 - Generate data](applications/12-generate-data.ipynb)
 * [Part 13 - The Power of Parallel Processing](applications/13-data-processing.ipynb)
 * [Part 14 - Distributed Computation](applications/14-distributed-computation/notebook.ipynb)
-* [Part 15 - Task Queue](applications/15-task-queue/notebook.ipynb)
+* [Part 15 - Task Queue](applications/15-task-queue/notebook.ipynb) ([tasks and server](applications/15-task-queue/))
 
 ### Other topics
 
