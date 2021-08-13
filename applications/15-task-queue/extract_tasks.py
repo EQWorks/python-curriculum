@@ -81,10 +81,12 @@ def post_slack(data, response_url):
         return
 
     titles = json.dumps(titles[:10], indent=2)
-    requests.post(
-        response_url,
-        json={'text': f'```{titles}```'},
-    )
+    _json = {'text': f'```{titles}```'}
+
+    if blocks := data.get('blocks'):
+        _json = {'response_type': 'in_channel', 'blocks': blocks}
+
+    requests.post(response_url, json=_json)
     return
 
 
@@ -106,3 +108,29 @@ def classify(data):
         title['score'] = score[0]
 
     return data
+
+
+@queue.task
+def format_slack(data):
+    domain = data.get('domain')
+    titles = data.get('titles')[:10]
+    blocks = [
+        {
+            'type': 'section',
+            'text': {
+                'type': 'mrkdwn',
+                'text': f'*Recent headlines from {domain}*',
+            },
+        },
+        {'type': 'divider'},
+    ]
+    for title in titles:
+        blocks.append({
+            "type": "section",
+            "text": {
+                "type": "mrkdwn",
+                "text": f"<{title['link']}|{title['text']}>\n{title['label']}: {round(title['score'] * 100, 2)}%"
+            },
+        })
+
+    return {'blocks': blocks, **data}
